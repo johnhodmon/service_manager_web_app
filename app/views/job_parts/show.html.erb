@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @job_part.job_id %>
+</p>
+
+<p>
+  <strong>Part:</strong>
+  <%= @job_part.part_id %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @job_part.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_job_part_path(@job_part) %> |
+<%= link_to 'Back', job_parts_path %>

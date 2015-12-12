@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   
  
 
+  resources :job_parts
   resources :invoices
   resources :engineers
   resources :jobs
