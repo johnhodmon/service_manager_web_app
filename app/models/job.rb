@@ -1,5 +1,7 @@
 class Job < ActiveRecord::Base
-	has_many parts_used, :through => :job_parts, :source => :part
+	has_many :parts_used, :through => :job_parts, :source => :part
 	belongs_to :engineer
 	belongs_to :product
+	validates :reported_fault, presence: true
+	validates :product_id, presence: true
 end
