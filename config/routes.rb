@@ -2,6 +2,14 @@ Rails.application.routes.draw do
   
  
 
+  resources :invoices
+  resources :engineers
+  resources :jobs
+  resources :parts
+  resources :part_lists
+  resources :customers
+  resources :manufacturers
+  resources :products
   resources :users
   root  'static_pages#home'
 

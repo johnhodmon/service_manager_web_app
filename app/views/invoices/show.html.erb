@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Invoice number:</strong>
+  <%= @invoice.invoice_number %>
+</p>
+
+<p>
+  <strong>Travel cost:</strong>
+  <%= @invoice.travel_cost %>
+</p>
+
+<p>
+  <strong>Parts cost:</strong>
+  <%= @invoice.parts_cost %>
+</p>
+
+<p>
+  <strong>Labour cost:</strong>
+  <%= @invoice.labour_cost %>
+</p>
+
+<p>
+  <strong>Vat:</strong>
+  <%= @invoice.vat %>
+</p>
+
+<p>
+  <strong>Total:</strong>
+  <%= @invoice.total %>
+</p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @invoice.job_id %>
+</p>
+
+<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
+<%= link_to 'Back', invoices_path %>

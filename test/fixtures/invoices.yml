@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  invoice_number: MyString
+  travel_cost: 9.99
+  parts_cost: 9.99
+  labour_cost: 9.99
+  vat: 9.99
+  total: 9.99
+  job_id: 1
+
+two:
+  invoice_number: MyString
+  travel_cost: 9.99
+  parts_cost: 9.99
+  labour_cost: 9.99
+  vat: 9.99
+  total: 9.99
+  job_id: 1

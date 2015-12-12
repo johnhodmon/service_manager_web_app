@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  part_number: MyString
+  description: MyString
+  cost: 9.99
+  quantity_in_stock: 1
+
+two:
+  part_number: MyString
+  description: MyString
+  cost: 9.99
+  quantity_in_stock: 1

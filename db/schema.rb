@@ -11,7 +11,113 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021130508) do
+ActiveRecord::Schema.define(version: 20151212190614) do
+
+  create_table "comments", force: :cascade do |t|
+    t.string   "content"
+    t.integer  "user_id"
+    t.integer  "micropost_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "street"
+    t.string   "town"
+    t.string   "county"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "lat_lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "engineers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "invoices", force: :cascade do |t|
+    t.string   "invoice_number"
+    t.decimal  "travel_cost"
+    t.decimal  "parts_cost"
+    t.decimal  "labour_cost"
+    t.decimal  "vat"
+    t.decimal  "total"
+    t.integer  "job_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "jobs", force: :cascade do |t|
+    t.string   "reported_fault"
+    t.integer  "travel_time"
+    t.integer  "labour_time"
+    t.integer  "product_id"
+    t.integer  "engineer_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "manufacturers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "street"
+    t.string   "town"
+    t.string   "county"
+    t.string   "phone"
+    t.string   "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "microposts", force: :cascade do |t|
+    t.text     "content"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "microposts_tags", id: false, force: :cascade do |t|
+    t.integer "micropost_id"
+    t.integer "tag_id"
+  end
+
+  create_table "part_lists", force: :cascade do |t|
+    t.integer  "product_id"
+    t.integer  "part_id"
+    t.integer  "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "parts", force: :cascade do |t|
+    t.string   "part_number"
+    t.string   "description"
+    t.decimal  "cost"
+    t.integer  "quantity_in_stock"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  create_table "products", force: :cascade do |t|
+    t.string   "serial_number"
+    t.string   "product_number"
+    t.string   "description"
+    t.integer  "manufacturer_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "customer_id"
+    t.string   "type"
+  end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

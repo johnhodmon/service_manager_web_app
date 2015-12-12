@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Reported fault:</strong>
+  <%= @job.reported_fault %>
+</p>
+
+<p>
+  <strong>Travel time:</strong>
+  <%= @job.travel_time %>
+</p>
+
+<p>
+  <strong>Labour time:</strong>
+  <%= @job.labour_time %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @job.product_id %>
+</p>
+
+<p>
+  <strong>Engineer:</strong>
+  <%= @job.engineer_id %>
+</p>
+
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>

@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Part Lists</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Part</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @part_lists.each do |part_list| %>
+      <tr>
+        <td><%= part_list.product_id %></td>
+        <td><%= part_list.part_id %></td>
+        <td><%= part_list.quantity %></td>
+        <td><%= link_to 'Show', part_list %></td>
+        <td><%= link_to 'Edit', edit_part_list_path(part_list) %></td>
+        <td><%= link_to 'Destroy', part_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Part list', new_part_list_path %>
