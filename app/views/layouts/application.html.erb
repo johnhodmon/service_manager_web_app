@@ -1,5 +1,5 @@
 
-
+ 
    <!DOCTYPE html>
     <html>
       <head>
@@ -18,10 +18,12 @@
 
         <div class="container">
        <%= render 'layouts/header' %>
+     
        <div class="row">
 
        <div class=" col-md-3 side-pane">
        <%= image_tag("Machine-banner1.jpg", alt: "Company logo") %>
+         <%= render yield(:side_content) %>
        </div>
          <div class=" col-md-9 main-pane">
 <ul class="nav nav-tabs nav_project">
