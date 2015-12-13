@@ -1,13 +1,12 @@
-<ul class="nav nav-stacked">
+<ul class="nav nav-pills nav-stacked side-nav">
 
   <% @customers.each do |customer| %>
     
-        <li><a><%= customer.name %></a></li>
-         <li><a><%= customer.town %></a></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==customer.id %>><%= link_to raw('<h1>'+customer.name+'</h1><p>'+customer.town+'</p>'), customer %></li>
+    
         <% end %>
 
 </ul>
-
 
 
 

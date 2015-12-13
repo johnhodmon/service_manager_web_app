@@ -30,7 +30,7 @@
  
   
    <li  role="presentation" class=<%= 'active' if params[:controller] == 'jobs' %>><%= link_to "Jobs", 'jobs' %></li>
-  <li role="presentation" class=<%= 'active' if params[:controller] == 'customers' %>><%= link_to "Customers", 'customers' %></li>
+  <li role="presentation" class=<%= 'active' if params[:controller] == 'customers' %>><%= link_to "Customers",customer_path(id:1)%></li>
    <li role="presentation"class=<%= 'active' if params[:controller] == 'products' %>><%= link_to "Products", 'products' %></li>
     <li role="presentation"class=<%= 'active' if params[:controller] == 'invoices' %>><%= link_to "Invoices", 'invoices' %></li>
      <li role="presentation"class=<%= 'active' if params[:controller] == 'parts' %>><%= link_to "Stock Control", 'parts' %></li>
