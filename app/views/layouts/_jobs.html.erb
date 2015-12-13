@@ -1,0 +1,9 @@
+<ul class="nav nav-pills nav-stacked side-nav">
+
+  <% @jobs.each do |job| %>
+    
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==jobid %>><%= link_to raw('<h1>'+job.product.manufacturer.name+' '+job.product.product_number+'</h1><p>'+job.reported_fault+'</p>'), job %></li>
+    
+        <% end %>
+
+</ul>

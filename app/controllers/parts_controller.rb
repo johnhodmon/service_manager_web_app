@@ -10,6 +10,7 @@ class PartsController < ApplicationController
   # GET /parts/1
   # GET /parts/1.json
   def show
+     @parts = Part.all
   end
 
   # GET /parts/new

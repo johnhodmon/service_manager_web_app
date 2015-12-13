@@ -1,0 +1,9 @@
+<ul class="nav nav-pills nav-stacked side-nav">
+
+  <% @invoices.each do |invoice| %>
+    
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==invoice.id %>><%= link_to raw('<h1>'+invoice.number+'</h1>'), invoice %></li>
+    
+        <% end %>
+
+</ul>

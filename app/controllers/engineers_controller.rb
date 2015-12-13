@@ -10,6 +10,7 @@ class EngineersController < ApplicationController
   # GET /engineers/1
   # GET /engineers/1.json
   def show
+     @engineers = Engineer.all
   end
 
   # GET /engineers/new

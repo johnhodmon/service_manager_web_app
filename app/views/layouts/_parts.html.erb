@@ -1,0 +1,12 @@
+<ul class="nav nav-pills nav-stacked side-nav">
+
+  <% @parts.each do |part| %>
+    
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==part.id %>><%= link_to raw('<h1>'+part.number+'</h1><p>'+part.description+'</p>'), parts %></li>
+    
+        <% end %>
+
+</ul>
+
+
+
