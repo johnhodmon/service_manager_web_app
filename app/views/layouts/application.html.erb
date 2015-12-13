@@ -14,16 +14,53 @@
       <body>
        
        <%= render 'layouts/header' %>
-        <div class="container">
+       <div class="row">
+
+       <div class=" col-md-3 side-pane">
+       <%= image_tag("Machine-banner1.jpg", alt: "Company logo") %>
+       </div>
+         <div class=" col-md-9 main-pane">
+<ul class="nav nav-tabs nav_project">
+ 
+  
+   <li role="presentation" class="active"><%= link_to "Jobs", 'jobs' %></li>
+  <li role="presentation"><%= link_to "Customers", 'customers' %></li>
+   <li role="presentation"><%= link_to "Products", 'products' %></li>
+    <li role="presentation"><%= link_to "Invoices", 'invoices' %></li>
+     <li role="presentation"><%= link_to "Stock Control", 'parts' %></li>
+
+   
+ 
+ <ul class="nav navbar-nav navbar-right ">
+      
+       <% if logged_in? %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle nav_project" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">John Hodmon <span class="caret"></span></a>
+          <ul class="dropdown-menu ">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul>
+        </li>
+          <% else %>
+              <li><%= link_to "Log in", login_path %></li>
+            <% end %>
+      </ul>
+</ul>
+       
         <% flash.each do |message_type, message| %>
         <div class= "alert alert-<%= message_type %>">
         <%= message %>
         </div>
         <% end %>
           <%= yield %>
-          <%= render 'layouts/footer' %>
-          <%=debug(params) if Rails.env.development?%>
+         
+       </div>
+        </div>
         </div>
       </body>
     </html>
+   
 
