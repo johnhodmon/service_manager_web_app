@@ -15,3 +15,18 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
+
+
+	      
+    
+
+  function myFunction() {
+    document.getElementById("customers").className = "active";
+
+    alert("feck");
+
+}
+
+
+
+
