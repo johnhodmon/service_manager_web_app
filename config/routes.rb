@@ -28,6 +28,8 @@ Rails.application.routes.draw do
 
   delete 'logout' => 'sessions#destroy'
 
+  get 'manufactured_product'=>'products#show'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.
