@@ -2,7 +2,7 @@
 
   <% @jobs.each do |job| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==jobid %>><%= link_to raw('<h1>'+job.product.manufacturer.name+' '+job.product.product_number+'</h1><p>'+job.reported_fault+'</p>'), job %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h1>'+job.product.manufacturer.name+' '+job.product.product_number+'</h1><p>'+job.reported_fault+'</p>'), job %></li>
     
         <% end %>
 

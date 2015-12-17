@@ -61,44 +61,44 @@
 
  #products  
 
-  hotpoint_cooker=ManufacturedProduct.create(manufacturer_id:beko.id,serial_number:'12345679',
+  hotpoint_cooker=Product.create(manufacturer_id:beko.id,serial_number:'12345679',
         product_number:'ECK6461', 
         description:'Cooker, free standing, 60 CM, Electric'
        )     
 
-    electrolux_cooker=ManufacturedProduct.create(manufacturer_id:electrolux.id,serial_number:'12345680',
+    electrolux_cooker=Product.create(manufacturer_id:electrolux.id,serial_number:'12345680',
         product_number:'ECK6461', 
         description:'Cooker, free standing, 60 CM, Electric'
        )
 
-    belling_cooker=ManufacturedProduct.create(manufacturer_id:belling.id,serial_number:'12345681',
+    belling_cooker=Product.create(manufacturer_id:belling.id,serial_number:'12345681',
         product_number:'FSE60DOBLK', 
         description:'Cooker, double oven, electric'
        )
 
 
-    beko_cooker=ManufacturedProduct.create(manufacturer_id:beko.id,serial_number:'12345682',
+    beko_cooker=Product.create(manufacturer_id:beko.id,serial_number:'12345682',
         product_number:'BSVC563AK', 
         description:'Cooker, double oven, electric'
       )
 
-    indesit_washing_machine=ManufacturedProduct.create(manufacturer_id:indesit.id,serial_number:'12345683',
+    indesit_washing_machine=Product.create(manufacturer_id:indesit.id,serial_number:'12345683',
         product_number:'IWSD61251', 
         description:'Washing machine, 6KG, A+'
        ) 
 
 
-    bosch_washing_machine=ManufacturedProduct.create(manufacturer_id:bosch.id,serial_number:'12345684',
+    bosch_washing_machine=Product.create(manufacturer_id:bosch.id,serial_number:'12345684',
         product_number:'WAT24460GB', 
         description:'Washing machine, 8KG'
        ) 
 
-    hotpoint_washing_machine=ManufacturedProduct.create(manufacturer_id:hotpoint.id,serial_number:'12345685',
+    hotpoint_washing_machine=Product.create(manufacturer_id:hotpoint.id,serial_number:'12345685',
         product_number:'WMBF944G', 
         description:'Washing machine, 9KG, A+++, 1400 Spin'
      )
 
-        beko_washing_machine=ManufacturedProduct.create(manufacturer_id:beko.id,serial_number:'12345686',
+        beko_washing_machine=Product.create(manufacturer_id:beko.id,serial_number:'12345686',
         product_number:'WMG 11464', 
         description:'Washing Machine, 11KG, 1400 Spin')
       
@@ -526,5 +526,11 @@ JobPart.create(job_id:job3.id,part_id:indesit_bearing.id,quantity:'1')
 JobPart.create(job_id:job4.id,part_id:indesit_controller.id,quantity:'1')
 JobPart.create(job_id:job5.id,part_id:beko_drain_pump.id,quantity:'1')
 JobPart.create(job_id:job6.id,part_id:beko_large_ring.id,quantity:'1')
+
+#invoices
+Invoice.create(job_id:job1.id, invoice_number:'inv_5002145')
+Invoice.create(job_id:job3.id,invoice_number:'inv_5002147')
+Invoice.create(job_id:job5.id,invoice_number:'inv_5002149')
+Invoice.create(job_id:job6.id,invoice_number:'inv_5002150')
 
 
