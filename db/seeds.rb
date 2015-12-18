@@ -493,14 +493,21 @@ eng3=Engineer.create(name:'Roy Doyle', email:'rdoyle@email.com')
 eng4=Engineer.create(name:'Francis Ryan', email:'uryan@email.com')   
 eng5=Engineer.create(name:'Peter Dempsey', email:'pdempsey@email.com')   
 
+#invoices
+
+invoice1=Invoice.create(invoice_number:'inv_5002145')
+invoice3=Invoice.create(invoice_number:'inv_5002147')
+invoice4=Invoice.create(invoice_number:'inv_5002149')
+invoice6=Invoice.create(invoice_number:'inv_5002150')
+
 #add jobs to customers
 ################################
-job1=Job.create(reported_fault:"Oven not working");
+job1=Job.create(reported_fault:"Oven not working",invoice_id:invoice1.id);
 job2=Job.create(reported_fault:"Grill not working");
-job3=Job.create(reported_fault:"Noise from machine");
-job4=Job.create(reported_fault:"Machine will not turn on");
+job3=Job.create(reported_fault:"Noise from machine",invoice_id:invoice3.id);
+job4=Job.create(reported_fault:"Machine will not turn on",invoice_id:invoice4.id);
 job5=Job.create(reported_fault:"Machine will not empty");
-job6=Job.create(reported_fault:"Ring not working");
+job6=Job.create(reported_fault:"Ring not working",invoice_id:invoice6.id);
 
 #allocate engineers to jobs
 job1.engineer=eng1
@@ -527,12 +534,6 @@ JobPart.create(job_id:job4.id,part_id:indesit_controller.id,quantity:'1')
 JobPart.create(job_id:job5.id,part_id:beko_drain_pump.id,quantity:'1')
 JobPart.create(job_id:job6.id,part_id:beko_large_ring.id,quantity:'1')
 
-#invoices
-
-invoice1=Invoice.create(job_id:job1.id,invoice_number:'inv_5002145')
-invoice3=Invoice.create(job_id:job3.id,invoice_number:'inv_5002147')
-invoice4=Invoice.create(job_id:job4.id,invoice_number:'inv_5002149')
-invoice6=Invoice.create(job_id:job6.id,invoice_number:'inv_5002150')
 
 
 
