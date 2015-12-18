@@ -528,9 +528,15 @@ JobPart.create(job_id:job5.id,part_id:beko_drain_pump.id,quantity:'1')
 JobPart.create(job_id:job6.id,part_id:beko_large_ring.id,quantity:'1')
 
 #invoices
-Invoice.create(job_id:job1.id, invoice_number:'inv_5002145')
-Invoice.create(job_id:job3.id,invoice_number:'inv_5002147')
-Invoice.create(job_id:job5.id,invoice_number:'inv_5002149')
-Invoice.create(job_id:job6.id,invoice_number:'inv_5002150')
+
+invoice1=Invoice.create(job_id:job1.id,invoice_number:'inv_5002145')
+invoice3=Invoice.create(job_id:job3.id,invoice_number:'inv_5002147')
+invoice4=Invoice.create(job_id:job4.id,invoice_number:'inv_5002149')
+invoice6=Invoice.create(job_id:job6.id,invoice_number:'inv_5002150')
+
+
+
+
+
 
 

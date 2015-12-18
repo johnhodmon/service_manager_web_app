@@ -1,29 +1,50 @@
 @import 'bootstrap-sprockets';
 @import "bootstrap";
 
-
-
-p
+.information
 {
-	font-size:16px;
+	
+	
 }
 
 
 h3
 {
-	font-size:18px;
+	font-size:120%;
 }
 
 h2
 {
-	font-size:20px;
+	font-size:130%;
 }
 
 
 h1
 {
-	font-size:22px;
+	font-size:140%;
 }
+
+p
+{
+	font-size:110%;
+	
+
+}
+
+
+.information>ul>li
+{
+	font-size:125%;
+	list-style-type:none;
+	
+
+}
+
+
+
+
+
+
 
 
 	 
@@ -63,7 +84,7 @@ h1
 }
 
 
-.side-nav>li>a>p,.side-nav>li>a>h1
+.side-nav>li>a>p,.side-nav>li>a>h3
 {
 
 	color:white;

@@ -1,40 +1,54 @@
 <% provide(:side_content, 'layouts/customers')%>  
-<p id="notice"><%= notice %></p>
 
+<div class= "row ">
+<div class="col-md-6 information">
 <p>
-  <strong>Name:</strong>
-  <%= @customer.name %>
+<%= @customer.name %> <br>
+<%= @customer.street %><br>
+<%= @customer.town %><br>
+<%= @customer.county %><br>
+<%= @customer.phone %><br>
+<%= @customer.email %><br>
+
+
 </p>
 
-<p>
-  <strong>Street:</strong>
-  <%= @customer.street %>
-</p>
+<h1>Customer Products</h1>
+<ul >
+<%  @customer.products.each do |product| %>
 
-<p>
-  <strong>Town:</strong>
-  <%= @customer.town %>
-</p>
+<li><%= link_to product.manufacturer.name+" "+
+product.product_number, product_path(id:product.id) %> </li> 
+<% end %> 
+</ul>
+</div>
+<div class="col-md-6 information">
+<h1>Jobs for this Customer</h1>
+<ul >
+<%  @customer.products.each do |product|
+ product.jobs.each do |job|%>
 
-<p>
-  <strong>County:</strong>
-  <%= @customer.county %>
-</p>
+<li><%= link_to job.created_at.strftime("%B %d, %Y")+" "+job.reported_fault,job_path(id:job.id)%></li> 
 
-<p>
-  <strong>Phone:</strong>
-  <%= @customer.phone %>
-</p>
+<% end %>
+<% end %> 
+</ul>
+</div>
+</div>
+<div class= "row ">
+<div class="col-md-6 information">
+</div>
+<div class="col-md-6 information">
+<h1> Invoices for this Customer</h1>
+<ul >
+<%  @customer.products.each do |product|
+ product.jobs.each do |job|
+ 	if(job.invoice!=nil) %>
 
-<p>
-  <strong>Email:</strong>
-  <%= @customer.email %>
-</p>
+<li><%= link_to job.invoice.created_at.strftime("%B %d, %Y")+" "+job.invoice.invoice_number,invoice_path(id:job.invoice.id)%></li> 
+<% end %>
+<% end %>
+<% end %>
 
-<p>
-  <strong>Lat lng:</strong>
-  <%= @customer.lat_lng %>
-</p>
-
-<%= link_to 'Edit', edit_customer_path(@customer) %> |
-<%= link_to 'Back', customers_path %>
+</div>
+</div>
