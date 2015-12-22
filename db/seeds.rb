@@ -502,12 +502,12 @@ invoice6=Invoice.create(invoice_number:'inv_5002150')
 
 #add jobs to customers
 ################################
-job1=Job.create(reported_fault:"Oven not working",invoice_id:invoice1.id, status:'complete');
-job2=Job.create(reported_fault:"Grill not working",status:'incomplete');
-job3=Job.create(reported_fault:"Noise from machine",invoice_id:invoice3.id,status:'incomplete');
-job4=Job.create(reported_fault:"Machine will not turn on",invoice_id:invoice4.id,status:'complete');
-job5=Job.create(reported_fault:"Machine will not empty",status:'incomplete');
-job6=Job.create(reported_fault:"Ring not working",invoice_id:invoice6.id,status:'incomplete');
+job1=Job.create(reported_fault:"Oven not working",invoice_id:invoice1.id, status:'allocated');
+job2=Job.create(reported_fault:"Grill not working",status:'unallocated');
+job3=Job.create(reported_fault:"Noise from machine",invoice_id:invoice3.id,status:'allocated');
+job4=Job.create(reported_fault:"Machine will not turn on",invoice_id:invoice4.id,status:'allocated');
+job5=Job.create(reported_fault:"Machine will not empty",status:'unallocated');
+job6=Job.create(reported_fault:"Ring not working",invoice_id:invoice6.id,status:'allocated');
 
 #allocate engineers to jobs
 job1.engineer=eng1
