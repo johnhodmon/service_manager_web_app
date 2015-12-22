@@ -3,6 +3,7 @@
 <% product=job.product %>
 <% customer=product.customer %>
 
+
 <div class= "row">
 <div class ="col-md-2">
 </div>
@@ -14,6 +15,7 @@
 <%=customer.street %><br>
 <%=customer.town %><br>
 <%=customer.county %><br>
+
 </p>
 </div>
 <div class ="col-md-4">
@@ -57,27 +59,29 @@ Cost
 </thead>
 <tbody>
 <tr>
-<td>Travel</td><td>&euro;<%= @cost_per_mile %> per mile</td><td>job.miles</td><td><%= calclulate_travel_cost %></td>
+<td>Travel</td><td>&euro;<%= Invoice.cost_per_mile %> per mile</td><td><%= job.miles %></td><td>&euro;<%= calculate_travel_cost %></td>
 </tr>
 <tr>
-<td>Labour</td><td>&euro;<%= @labour_per_hour %> per hour</td><td>job.labour_time</td><td><%= calclulate_labour_cost %></td>
+<td>Labour</td><td>&euro;<%= Invoice.labour_per_hour %> per hour</td><td><%= job.labour_time %></td><td>&euro;<%= calculate_labour_cost %></td>
 </tr>
 <% job.parts_used.each do |part| %>
 <% job_part_items=JobPart.where(job_id:job.id,part_id:part.id) %>
 <% job_part_item=job_part_items[0] %>
 <% quantity=job_part_item.quantity %>
-<tr><td><%= part.description %></td><td><%= part.cost %></td><td>quantity</td><td><%= calculate_part_cost(part.id,quantity)%></td></tr>
-<% @parts_total=@parts_total+calculate_part_cost %>
+<tr><td><%= part.description %></td><td><%= part.cost %></td><td><%= quantity %></td><td>&euro;<%= calculate_part_cost(part, quantity)%></td></tr>
+  
   <% end %>
 
 <tr>
-  <td>Total Before Vat</td><td></td><td></td><td><%= calclulate_total_before_vat(calclulate_travel_cost,calclulate_labour_cost,@parts_total) %></td>
+  <td>Total Before Vat</td><td></td><td></td><td>&euro;<%=calculate_travel_cost+calculate_labour_cost+ @invoice.calculate_total_cost_of_parts %></td>
 
 </tr>
+
 <tr>
-  <td>Total Including Vat @ <%= @vat_rate %>%</td><td></td><td></td><td><%= calclulate_total_including_vat(calclulate_total_before_vat(calclulate_travel_cost,calclulate_labour_cost,@parts_total)) %></td>
+  <td>Total Including Vat</td><td>Vat @ <%=Invoice.vat_rate*100 %>%</td><td></td><td>&euro;<%=(calculate_travel_cost+calculate_labour_cost+ @invoice.calculate_total_cost_of_parts+((calculate_travel_cost+calculate_labour_cost+ @invoice.calculate_total_cost_of_parts)*Invoice.vat_rate)).round(2) %></td>
 
 </tr>
+
 
 
 

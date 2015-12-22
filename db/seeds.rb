@@ -528,12 +528,12 @@ invoice6=Invoice.create(invoice_number:'inv_5002150')
 
 #add jobs to customers
 ################################
-job1=Job.create(reported_fault:"Oven not working",status:'complete',report:'Replaced oven element');
+job1=Job.create(reported_fault:"Oven not working",status:'complete',report:'Replaced oven element',labour_time: 1.25, miles: 59);
 job2=Job.create(reported_fault:"Grill not working",status:'unallocated');
-job3=Job.create(reported_fault:"Noise from machine",status:'complete',report:'Replaced drum bearings and rebalanced machine');
-job4=Job.create(reported_fault:"Machine will not turn on",status:'Replaced controller rewired door switch');
+job3=Job.create(reported_fault:"Noise from machine",status:'complete',report:'Replaced drum bearings and rebalanced machine',labour_time: 2.25,miles: 150 );
+job4=Job.create(reported_fault:"Machine will not turn on",status:'complete', report:'Replaced controller rewired door switch',labour_time:1.00,miles: 25);
 job5=Job.create(reported_fault:"Machine will not empty",status:'unallocated');
-job6=Job.create(reported_fault:"Ring not working",status:'complete', report:'replaced ring and rheostat.');
+job6=Job.create(reported_fault:"Ring not working",status:'complete', report:'replaced ring and rheostat.',labour_time:1.00,miles: 25);
 job7=Job.create(reported_fault:"Nothing working on cooker",status:'allocated');
 job8=Job.create(reported_fault:"Machine full of water",status:'allocated');
 job9=Job.create(reported_fault:"Machine leaking",status:'allocated');
@@ -565,12 +565,9 @@ hotpoint_washing_machine.jobs<<job9
 
 #add parts used on jobs
 JobPart.create(job_id:job1.id,part_id:hotpoint_oven_element.id,quantity:'1')
-JobPart.create(job_id:job2.id,part_id:hotpoint_grill_element.id,quantity:'1')
-JobPart.create(job_id:job2.id,part_id:hotpoint_rheostat.id,quantity:'2')
 JobPart.create(job_id:job3.id,part_id:indesit_bearing.id,quantity:'1')
 JobPart.create(job_id:job4.id,part_id:indesit_controller.id,quantity:'1')
-JobPart.create(job_id:job5.id,part_id:beko_drain_pump.id,quantity:'1')
-JobPart.create(job_id:job6.id,part_id:beko_large_ring.id,quantity:'1')
+
 
 
 
