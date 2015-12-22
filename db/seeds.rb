@@ -63,44 +63,44 @@
 
   hotpoint_cooker=Product.create(manufacturer_id:beko.id,serial_number:'12345679',
         product_number:'ECK6461', 
-        description:'Cooker, free standing, 60 CM, Electric'
+        description:'Cooker, free standing, 60 CM, Electric',image_file:'hotpoint_cooker.png'
        )     
 
     electrolux_cooker=Product.create(manufacturer_id:electrolux.id,serial_number:'12345680',
         product_number:'ECK6461', 
-        description:'Cooker, free standing, 60 CM, Electric'
+        description:'Cooker, free standing, 60 CM, Electric',image_file:'electrolux_cooker.png'
        )
 
     belling_cooker=Product.create(manufacturer_id:belling.id,serial_number:'12345681',
         product_number:'FSE60DOBLK', 
-        description:'Cooker, double oven, electric'
+        description:'Cooker, double oven, electric',image_file:'belling_cooker.png'
        )
 
 
     beko_cooker=Product.create(manufacturer_id:beko.id,serial_number:'12345682',
         product_number:'BSVC563AK', 
-        description:'Cooker, double oven, electric'
+        description:'Cooker, double oven, electric',image_file:'beko_cooker.jpg'
       )
 
     indesit_washing_machine=Product.create(manufacturer_id:indesit.id,serial_number:'12345683',
         product_number:'IWSD61251', 
-        description:'Washing machine, 6KG, A+'
+        description:'Washing machine, 6KG, A+',image_file:'indesit_machine.png'
        ) 
 
 
     bosch_washing_machine=Product.create(manufacturer_id:bosch.id,serial_number:'12345684',
         product_number:'WAT24460GB', 
-        description:'Washing machine, 8KG'
+        description:'Washing machine, 8KG',image_file:'bosch_machine.png'
        ) 
 
     hotpoint_washing_machine=Product.create(manufacturer_id:hotpoint.id,serial_number:'12345685',
         product_number:'WMBF944G', 
-        description:'Washing machine, 9KG, A+++, 1400 Spin'
+        description:'Washing machine, 9KG, A+++, 1400 Spin',image_file:'hotpoint_machine.png'
      )
 
         beko_washing_machine=Product.create(manufacturer_id:beko.id,serial_number:'12345686',
         product_number:'WMG 11464', 
-        description:'Washing Machine, 11KG, 1400 Spin')
+        description:'Washing Machine, 11KG, 1400 Spin',image_file:'beko_machine.png')
       
 
 #add products to customers
@@ -502,12 +502,12 @@ invoice6=Invoice.create(invoice_number:'inv_5002150')
 
 #add jobs to customers
 ################################
-job1=Job.create(reported_fault:"Oven not working",invoice_id:invoice1.id);
-job2=Job.create(reported_fault:"Grill not working");
-job3=Job.create(reported_fault:"Noise from machine",invoice_id:invoice3.id);
-job4=Job.create(reported_fault:"Machine will not turn on",invoice_id:invoice4.id);
-job5=Job.create(reported_fault:"Machine will not empty");
-job6=Job.create(reported_fault:"Ring not working",invoice_id:invoice6.id);
+job1=Job.create(reported_fault:"Oven not working",invoice_id:invoice1.id, status:'complete');
+job2=Job.create(reported_fault:"Grill not working",status:'incomplete');
+job3=Job.create(reported_fault:"Noise from machine",invoice_id:invoice3.id,status:'incomplete');
+job4=Job.create(reported_fault:"Machine will not turn on",invoice_id:invoice4.id,status:'complete');
+job5=Job.create(reported_fault:"Machine will not empty",status:'incomplete');
+job6=Job.create(reported_fault:"Ring not working",invoice_id:invoice6.id,status:'incomplete');
 
 #allocate engineers to jobs
 job1.engineer=eng1

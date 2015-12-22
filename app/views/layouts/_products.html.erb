@@ -2,7 +2,7 @@
 
   <% @products.each do |product| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i==product.id %>><%= link_to raw('<h1>'+product.manufacturer.name+'</h1><p>'+product.product_number+'</p>'), product %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i==product.id %>><%= link_to raw('<h3>'+product.manufacturer.name+'</h3><p>'+product.product_number+'</p>'), product %></li>
     
         <% end %>
 

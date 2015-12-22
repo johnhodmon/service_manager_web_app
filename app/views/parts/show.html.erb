@@ -1,25 +1,57 @@
 <% provide(:side_content, 'layouts/parts')%> 
-<p id="notice"><%= notice %></p>
-
+<div class ="row">
+<div class="col-md-6">
+<h1> Part Details</h1>
 <p>
-  <strong>Part number:</strong>
-  <%= @part.part_number %>
+<%= @part.part_number %><br>
+<%= @part.description %><br>
+Cost: &euro;<%= @part.cost %><br>
+Quantity in stock: <%= @part.quantity_in_stock %><br>
+
 </p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @part.description %>
-</p>
+<h1>Part History</h1>
+<% if @part.used_on_jobs.size!=0 %>
+<table>
+<thead>
+<th>Date</th><th>Job Fault</th><th>Quantity Used</th>
+</thead>
+<tbody>
+<% @part.used_on_jobs.each do |job| %>
+<% job_part_items=JobPart.where(job_id:job.id,part_id:@part.id) %>
+<% job_part_item=job_part_items[0] %>
+<% quantity=job_part_item.quantity %>
+<tr><td><%= job.created_at.strftime("%B %d, %Y") %></td><td><%= link_to job.reported_fault,job %></td><td></td><td><%= quantity %></td></tr>
+<% end %>	
+</tbody>
+</table>
+<% end %>
+</div>
+<div class="col-md-6">
+<h1>Products Where Used</h1>
+<table>
+<thead>
+<tr>
+<th>Product Number</th>
+<th>Product Description</th>
+<th>Quantity Used</th>
+</tr>
+</thead>
+<tbody>
 
-<p>
-  <strong>Cost:</strong>
-  <%= @part.cost %>
-</p>
+<% @part.used_on_products.each do |product| %>
+<% part_list_items=PartList.where(part_id:@part.id,product_id:product.id) %>
+<% part_list_item=part_list_items[0] %>
+<% quantity=part_list_item.quantity %>
 
-<p>
-  <strong>Quantity in stock:</strong>
-  <%= @part.quantity_in_stock %>
-</p>
+<tr><td><%= link_to product.manufacturer.name+" "+product.product_number, product %></td><td><%= product.description %></td><td><%= quantity.to_s %></td></tr>
 
-<%= link_to 'Edit', edit_part_path(@part) %> |
-<%= link_to 'Back', parts_path %>
+
+<% end %>
+
+</tbody>
+</table>
+</div>
+</div>
+
+ 

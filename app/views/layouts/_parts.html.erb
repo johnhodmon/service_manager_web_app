@@ -2,7 +2,7 @@
 
   <% @parts.each do |part| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==part.id %>><%= link_to raw('<h1>'+part.part_number+'</h1><p>'+part.description+'</p>'), part %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==part.id %>><%= link_to raw('<h3>'+part.part_number+'</h3><p>'+part.description+'</p>'), part %></li>
     
         <% end %>
 

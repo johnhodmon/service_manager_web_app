@@ -1,25 +1,44 @@
 <% provide(:side_content, 'layouts/products')%> 
-<p id="notice"><%= notice %></p>
-
+<div class ="row">
+<div class="col-md-6">
+<h1>Manufacturer<h1>
 <p>
-  <strong>Serial number:</strong>
-  <%= @product.serial_number %>
+<%= @product.manufacturer.name %><br>
+<%= @product.manufacturer.street %><br>
+<%= @product.manufacturer.town %><br>
+<%= @product.manufacturer.county %><br>
+<%= @product.manufacturer.country %><br>
+<%= @product.manufacturer.phone %><br>
+<%= @product.manufacturer.email %><br>
 </p>
 
-<p>
-  <strong>Product number:</strong>
-  <%= @product.product_number %>
-</p>
+<h1> Parts List</h1>
+<table>
+<thead>
+<tr>
+<th>Part Number</th>
+<th>Part Description</th>
+<th>Quantity</th>
+</tr>
+</thead>
+<tbody>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+<% @product.parts_contained.each do |part| %>
+<% part_list_items=PartList.where(part_id:part.id,product_id:@product.id) %>
+<% part_list_item=part_list_items[0] %>
+<% quantity=part_list_item.quantity %>
 
-<p>
-  <strong>Manufacturer:</strong>
-  <%= @product.manufacturer_id %>
-</p>
+<tr><td><%= link_to part.part_number, part %></td><td><%= part.description %></td><td><%= quantity.to_s %></td></tr>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+
+<% end %>
+
+</tbody>
+</table>
+</div>
+<div class="col-md-6">
+<h1> Exploded View </h1>
+ <%= image_tag(@product.image_file, alt: "Exploded View") %>
+</div>
+</div>
+
