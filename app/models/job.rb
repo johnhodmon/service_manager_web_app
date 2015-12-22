@@ -3,6 +3,7 @@ class Job < ActiveRecord::Base
 	belongs_to :engineer
 	belongs_to :product	
 	belongs_to :invoice
+	has_many :job_parts
 	has_many :parts_contained, :through => :job_parts, :source => :part
 	validates :reported_fault, presence: true
 	validates :product_id, presence: true

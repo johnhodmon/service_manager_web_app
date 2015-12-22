@@ -30,6 +30,22 @@
          county: "Wexford",
          phone: "0513892305")
 
+         c5=Customer.create(name:'Mary Hennessey', 
+        email:'mhennessey@jmail.com',
+       
+         street: "16 The Faythe",
+         town: "Wexford",
+         county: "Wexford",
+         phone: "0539155876")
+
+             c6=Customer.create(name:'Olly Murphy', 
+        email:'omurphy@jmail.com',
+       
+         street: "Beach View",
+         town: "Duncannon",
+         county: "Wexford",
+         phone: "0515587657")
+
  #add manufacturers
    
 
@@ -114,14 +130,24 @@
 
 
        customer = Customer.find_by_email("ciaranmeaney@jmail.com")
-        customer.products << electrolux_cooker 
+        customer.products << beko_cooker 
         customer.products << indesit_washing_machine
      
 
          customer = Customer.find_by_email("roynolan@jmail.com")
 
-        customer.products << beko_cooker 
+      
             customer.products << bosch_washing_machine
+
+
+         customer = Customer.find_by_email("mhennessey@jmail.com")
+
+        customer.products << beko_washing_machine 
+
+
+         customer = Customer.find_by_email("omurphy@jmail.com")
+
+            customer.products << hotpoint_washing_machine
 
 
 #Washing machine parts
@@ -502,12 +528,15 @@ invoice6=Invoice.create(invoice_number:'inv_5002150')
 
 #add jobs to customers
 ################################
-job1=Job.create(reported_fault:"Oven not working",invoice_id:invoice1.id, status:'allocated');
+job1=Job.create(reported_fault:"Oven not working",invoice_id:invoice1.id, status:'complete',report:'Replaced oven element');
 job2=Job.create(reported_fault:"Grill not working",status:'unallocated');
-job3=Job.create(reported_fault:"Noise from machine",invoice_id:invoice3.id,status:'allocated');
-job4=Job.create(reported_fault:"Machine will not turn on",invoice_id:invoice4.id,status:'allocated');
+job3=Job.create(reported_fault:"Noise from machine",status:'complete',report:'Replaced drum bearings and rebalanced machine');
+job4=Job.create(reported_fault:"Machine will not turn on",invoice_id:invoice4.id,status:'Replaced controller rewired door switch');
 job5=Job.create(reported_fault:"Machine will not empty",status:'unallocated');
-job6=Job.create(reported_fault:"Ring not working",invoice_id:invoice6.id,status:'allocated');
+job6=Job.create(reported_fault:"Ring not working",invoice_id:invoice6.id,status:'complete', report:'replaced ring and rheostat.');
+job7=Job.create(reported_fault:"Nothing working on cooker",status:'allocated');
+job8=Job.create(reported_fault:"Machine full of water",status:'allocated');
+job9=Job.create(reported_fault:"Machine leaking",status:'allocated');
 
 #allocate engineers to jobs
 job1.engineer=eng1
@@ -524,6 +553,9 @@ indesit_washing_machine.jobs<<job3
 indesit_washing_machine.jobs<<job4
 beko_washing_machine.jobs<<job5
 beko_cooker.jobs<<job6
+electrolux_cooker.jobs<<job7
+bosch_washing_machine.jobs<<job8
+hotpoint_washing_machine.jobs<<job9
 
 #add parts used on jobs
 JobPart.create(job_id:job1.id,part_id:hotpoint_oven_element.id,quantity:'1')

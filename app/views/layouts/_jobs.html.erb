@@ -22,3 +22,15 @@
 
 </ul>
 
+<h3>Completed Jobs</h3>
+<ul class="nav nav-pills nav-stacked side-nav">
+
+  <% unallocated=@jobs.select {|job| job.status=='complete'} %>
+  <% unallocated.each do |job| %>
+    
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.product.manufacturer.name+' '+job.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
+    
+        <% end %>
+
+</ul>
+

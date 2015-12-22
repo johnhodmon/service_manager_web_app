@@ -1,30 +1,68 @@
 <% provide(:side_content, 'layouts/jobs')%> 
-<p id="notice"><%= notice %></p>
+<div class= "row">
+<div class ="col-md-2">
+</div>
+<div class ="col-md-8">
+<% customer=@job.product.customer %>
 
+<%= link_to customer.name,customer %><br>
+<%=customer.street %><br>
+<%=customer.town %><br>
+<%=customer.county %><br>
+
+<h1>Fault Description</h1>
 <p>
-  <strong>Reported fault:</strong>
-  <%= @job.reported_fault %>
-</p>
+Fault reported on <%= @job.created_at.strftime("%B %d, %Y") %><br>
+Fault description: <%= @job.reported_fault %><br>
+Job is <%= @job.status %>
+<% if @job.status=='unallocated' %><br>
+<%= link_to "Allocate this job", edit_job_path(@job) %>
+<% end %>
 
+</p>
+<h1> Job Report </h1>
+
+<% if @job.status=='complete' %><br>
+<P>
+Work completed by <%= @job.engineer.name %> <br>
+Enginner Comments: <%= @job.report %>
+</P>
+
+
+<% else %>
 <p>
-  <strong>Travel time:</strong>
-  <%= @job.travel_time %>
+This job has not been completed by an engineer.
 </p>
+<% end %>
+</div>
+<div class ="col-md-2">
+</div>
+</div>
 
-<p>
-  <strong>Labour time:</strong>
-  <%= @job.labour_time %>
-</p>
+<h1> Invoice for this Job</h1>
+<%if @job.invoice %>
+<% invoice =@job.invoice %>
+This job has been invoiced, invoice number: <%= link_to invoice.invoice_number, invoice %>
+<% else %>
+This job has not been invoiced 
+<% if @job.status=='complete' %>
+though it is complete. <%= link_to "invoice this job", new_invoice_path(job_id:@job.id) %> 
+<% else %>
+as it is not yet complete
+<% end %>
+<% end %>
+<h1>Parts Used on this Job</h1>
+<table>
+<thead>
+<th>Part Number</th><th>Description</th><th>Quantity Used</th>
+</thead>
+<tbody>
+<% @job.parts_used.each do |part| %>
+<% job_part_items=JobPart.where(job_id:@job.id,part_id:part.id) %>
+<% job_part_item=job_part_items[0] %>
+<% quantity=job_part_item.quantity %>
+<tr><td><%= link_to part.part_number,part %></td><td><%= part.description %></td><td></td><td><%= quantity %></td></tr>
+<% end %> 
+</tbody>
+</table>
 
-<p>
-  <strong>Product:</strong>
-  <%= @job.product_id %>
-</p>
-
-<p>
-  <strong>Engineer:</strong>
-  <%= @job.engineer_id %>
-</p>
-
-<%= link_to 'Edit', edit_job_path(@job) %> |
-<%= link_to 'Back', jobs_path %>
