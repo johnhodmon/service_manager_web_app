@@ -1,8 +1,8 @@
 <ul class="nav nav-pills nav-stacked side-nav">
-
-  <% @invoices.each do |invoice| %>
+<% sorted_invoices=@invoices.sort{|a,b| a.created_at <=> b.created_at } %>
+  <% sorted_invoices.each do |invoice| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==invoice.id %>><%= link_to raw('<h3>'+invoice.invoice_number+'</h3>'), invoice %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==invoice.id %>><%= link_to raw('<h3>'+invoice.created_at.strftime("%B %d, %Y")+'</h3><p>'+invoice.invoice_number+'</p>'), invoice %></li>
     
         <% end %>
 

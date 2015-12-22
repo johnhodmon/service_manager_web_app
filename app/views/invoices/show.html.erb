@@ -1,37 +1,95 @@
 <% provide(:side_content, 'layouts/invoices')%> 
-<p id="notice"><%= notice %></p>
+<% job=@invoice.job %>
+<% product=job.product %>
+<% customer=product.customer %>
 
+<div class= "row">
+<div class ="col-md-2">
+</div>
+<div class ="col-md-8">
+<div class="row">
+<div class ="col-md-4">
 <p>
-  <strong>Invoice number:</strong>
-  <%= @invoice.invoice_number %>
+<%= link_to customer.name,customer %><br>
+<%=customer.street %><br>
+<%=customer.town %><br>
+<%=customer.county %><br>
+</p>
+</div>
+<div class ="col-md-4">
+</div>
+<div class ="col-md-4">
+<p>
+<%= product.manufacturer.name %>
+<%= product.product_number %>
+<%= product.description %>
+Serial Number: <%= product.serial_number %>
+</p>
+</div>
+</div>
+
+
+
+<h1>Job Details</h1>
+<p>
+Fault reported on <%= job.created_at.strftime("%B %d, %Y") %><br>
+Fault description: <%= job.reported_fault %><br>
+Work completed by <%= job.engineer.name %> <br>
+Enginner Comments: <%= job.report %>
 </p>
 
-<p>
-  <strong>Travel cost:</strong>
-  <%= @invoice.travel_cost %>
-</p>
+<h1>Costs</h1>
+<table>
+<thead>
+<th>
+Description
+</th>
+<th>
+Cost per item
+</th>
+<th>
+Quantity
+</th>
+<th>
+Cost
+</th>
 
-<p>
-  <strong>Parts cost:</strong>
-  <%= @invoice.parts_cost %>
-</p>
+</thead>
+<tbody>
+<tr>
+<td>Travel</td><td>&euro;<%= @cost_per_mile %> per mile</td><td>job.miles</td><td><%= calclulate_travel_cost %></td>
+</tr>
+<tr>
+<td>Labour</td><td>&euro;<%= @labour_per_hour %> per hour</td><td>job.labour_time</td><td><%= calclulate_labour_cost %></td>
+</tr>
+<% job.parts_used.each do |part| %>
+<% job_part_items=JobPart.where(job_id:job.id,part_id:part.id) %>
+<% job_part_item=job_part_items[0] %>
+<% quantity=job_part_item.quantity %>
+<tr><td><%= part.description %></td><td><%= part.cost %></td><td>quantity</td><td><%= calculate_part_cost(part.id,quantity)%></td></tr>
+<% @parts_total=@parts_total+calculate_part_cost %>
+  <% end %>
 
-<p>
-  <strong>Labour cost:</strong>
-  <%= @invoice.labour_cost %>
-</p>
+<tr>
+  <td>Total Before Vat</td><td></td><td></td><td><%= calclulate_total_before_vat(calclulate_travel_cost,calclulate_labour_cost,@parts_total) %></td>
 
-<p>
-  <strong>Vat:</strong>
-  <%= @invoice.vat %>
-</p>
+</tr>
+<tr>
+  <td>Total Including Vat @ <%= @vat_rate %>%</td><td></td><td></td><td><%= calclulate_total_including_vat(calclulate_total_before_vat(calclulate_travel_cost,calclulate_labour_cost,@parts_total)) %></td>
 
-<p>
-  <strong>Total:</strong>
-  <%= @invoice.total %>
-</p>
+</tr>
 
 
 
-<%= link_to 'Edit', edit_invoice_path(@invoice) %> |
-<%= link_to 'Back', invoices_path %>
+
+</tbody>
+</table>
+
+</div>
+
+<div class ="col-md-2">
+</div>
+</div>
+
+
+
