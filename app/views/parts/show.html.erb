@@ -51,6 +51,8 @@ Quantity in stock: <%= @part.quantity_in_stock %><br>
 
 </tbody>
 </table>
+<%= link_to "Edit this Part", edit_part_path(@part) %>
+<%= link_to 'Delete this Part', @part, method: :delete, data: { confirm: 'Are you sure you want to delete this part?' } %>
 </div>
 </div>
 
