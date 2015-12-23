@@ -1,5 +1,32 @@
+<% provide(:side_content, 'layouts/blank')%>
+<div class="row">
+<div class="col-md-4">
+</div>
+<div class="col-md-4">
+
 <h1>New Customer</h1>
 
-<%= render 'form' %>
+<%= form_for(@customer) do|f| %>
+<%= f.label :name %>
+<%= f.text_field :name %>
+<%= f.label :street %>
+<%= f.text_field :street %>
+<%= f.label :town %>
+<%= f.text_field :town %>
+<%= f.label :county %>
+<%= f.text_field :county %>
+<%= f.label :phone %>
+<%= f.text_field :phone %>
+<%= f.label :email %>
+<%= f.text_field :email %>
+<%= f.label :latlng,"Coordinates" %>
+<%= f.text_field :lat_lng %>
 
-<%= link_to 'Back', customers_path %>
+<%= f.submit "Create Customer" %>
+
+
+<% end %>
+</div>
+<div class="col-md-4">
+</div>
+</div>
