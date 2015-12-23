@@ -1,7 +1,7 @@
 <% provide(:side_content, 'layouts/customers')%>  
 
 <div class= "row ">
-<div class="col-md-4">
+<div class="col-md-4 info">
 <h1>Customer Details</h1>
 <p>
 <%= @customer.name %> <br>
@@ -17,7 +17,7 @@
 <%= link_to 'Delete this Customer', @customer, method: :delete, data: { confirm: 'Are you sure you want to delete this customer?' } %>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 info">
 <h1>Customer Products</h1>
 <ul >
 <%  @customer.owned_products.each do |product| %>
@@ -57,7 +57,7 @@ product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Creat
 </ul>
 </div>
 
-<div class="col-md-4">
+<div class="col-md-4 info">
 <h1>Jobs for this Customer</h1>
 <ul >
 <%  @customer.customer_products.each do |product|

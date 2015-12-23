@@ -1,56 +1,36 @@
 @import 'bootstrap-sprockets';
 @import "bootstrap";
 
-.information
-{
-	
-	
-}
+
 
 
 h3
 {
-	font-size:120%;
+	font-size:130%;
 }
 
 h2
 {
-	font-size:130%;
+	font-size:140%;
 }
 
 
 h1
 {
-	font-size:140%;
+	font-size:150%;
 }
 
 p
 {
-	font-size:110%;
+	font-size:120%;
 	
 
 }
-
-
-.information>ul>li
-{
-	font-size:125%;
-	list-style-type:none;
-	
-
-}
-
-
-
-
-
-
-
 
 	 
 .top-nav
 {
-	background-color:#eeeeee;
+	background-color:#cccccc;
 	
 	font-size:20px;
 	
@@ -105,21 +85,14 @@ p
 
 .main-pane
 {
-	background-color:#c1c1c1;
+	background-color:#eeeeee;
 	height:2000px;
-	padding-left:0px;
+	
 
 }
 
-.main-pane >table
-{
-	background-color:white;
-}
 
-.main-pane >h1
-{
-	color:white;
-}
+
 
 
    .nav-pills > li.active > a,
@@ -132,8 +105,17 @@ p
         
           }
 
+table
+{
+	border: 1px solid  black;
+}
 
+td,th
+{
+	border: 1px solid  black;
+	padding:2px;
 
+}
 
 
 
