@@ -1,5 +1,5 @@
 
-<h3>Unallocated Jobs</h3>
+<h1>Unallocated Jobs</h1>
 <ul class="nav nav-pills nav-stacked side-nav">
 
   <% unallocated=@jobs.select {|job| job.status=='unallocated'} %>
@@ -11,7 +11,7 @@
 
 </ul>
 
-<h3>Allocated Jobs</h3>
+<h1>Allocated Jobs</h1>
 <ul class="nav nav-pills nav-stacked side-nav">
 
   <% unallocated=@jobs.select {|job| job.status=='allocated'} %>
@@ -23,7 +23,7 @@
 
 </ul>
 
-<h3>Completed Jobs</h3>
+<h1>Completed Jobs</h1>
 <ul class="nav nav-pills nav-stacked side-nav">
 
   <% unallocated=@jobs.select {|job| job.status=='complete'} %>

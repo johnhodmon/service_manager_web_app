@@ -26,7 +26,7 @@
          <%= render yield(:side_content) %>
        </div>
          <div class=" col-md-9 main-pane">
-<ul class="nav nav-tabs nav_project">
+<ul class="nav top-nav nav-tabs nav_project">
  
   
    <li  role="presentation" class=<%= 'active' if params[:controller] == 'jobs' %>><%= link_to "Jobs", job_path(id:Job.all[0].id) %></li>
@@ -37,7 +37,7 @@
 
    
  
- <ul class="nav navbar-nav navbar-right ">
+ <ul class="nav top-nav navbar-nav navbar-right ">
       
        <% if logged_in? %>
         <li class="dropdown">

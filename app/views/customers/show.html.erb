@@ -46,7 +46,7 @@ product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Creat
 
 <h1> Invoices for this Customer</h1>
 <ul >
-<%  @customer.owned_products.each do |product|
+<%  @customer.customer_products.each do |product|
  product.jobs.each do |job|
  	if(job.invoice!=nil) %>
 
@@ -60,7 +60,7 @@ product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Creat
 <div class="col-md-4">
 <h1>Jobs for this Customer</h1>
 <ul >
-<%  @customer.owned_products.each do |product|
+<%  @customer.customer_products.each do |product|
  product.jobs.each do |job|%>
 
 <li><%= link_to job.created_at.strftime("%B %d, %Y")+" "+job.reported_fault,job_path(id:job.id)%></li> 
