@@ -11,8 +11,11 @@ class CustomerProductsController < ApplicationController
 	end
 
 	end
+	def destroy
+	cp=CustomerProduct.find(params[:id]).destroy	
 
-
+    redirect_to customer_path(id:params[:customer_id])
+end
 	 def customer_product_params
       params.require(:customer_product).permit(:product_id, :customer_id, :serial_number)
     end

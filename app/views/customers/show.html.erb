@@ -21,9 +21,10 @@
 <h1>Customer Products</h1>
 <ul >
 <%  @customer.owned_products.each do |product| %>
-
+<% customer_products=CustomerProduct.where(customer_id:@customer.id,product_id:product.id) %>
+<% customer_product=customer_products[0] %>
 <li><h3><%= link_to product.manufacturer.name+" "+
-product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Create Job for this Product", new_job_path(product_id:product.id,customer_id:@customer.id) %> </p></li> 
+product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Create Job for this Product", new_job_path(product_id:product.id,customer_id:@customer.id) %> <%= link_to 'Delete',customer_product_path(id:customer_product.id,customer_id:@customer.id), method: :delete, data: { confirm: 'Are you sure you want to delete this customer product?' } %></p></li> 
 <% end %> 
 </ul>
 <h1>Add Product for this Customer</h1>
