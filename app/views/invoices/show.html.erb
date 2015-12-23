@@ -1,7 +1,7 @@
 <% provide(:side_content, 'layouts/invoices')%> 
 <% job=@invoice.job %>
-<% product=job.product %>
-<% customer=product.customer %>
+<% product=job.customer_product.product %>
+<% customer=job.customer_product.customer %>
 
 
 <div class= "row">
@@ -25,7 +25,7 @@
 <%= product.manufacturer.name %>
 <%= product.product_number %>
 <%= product.description %>
-Serial Number: <%= product.serial_number %>
+Serial Number: <%= job.customer_product.serial_number %>
 </p>
 </div>
 </div>

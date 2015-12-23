@@ -17,30 +17,17 @@
 <div class="col-md-4">
 <h1>Customer Products</h1>
 <ul >
-<%  @customer.products.each do |product| %>
+<%  @customer.owned_products.each do |product| %>
 
 <li><h3><%= link_to product.manufacturer.name+" "+
 product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Create Job for this Product", new_job_path(product_id:product.id) %> </p></li> 
 <% end %> 
 </ul>
 <h1>Add Product for this Customer</h1>
-  <%= form_for(:product, url: job_path(id:@customer.id) do |f| %>
-   
 
-         <%= f.select(:product_number, @job.product.bom_parts.collect{|p| [ p.description, p.id ] }, {:include_blank => 'Select a Part'}) %>
-       		<%= f.label :serial_number,"Serial Number" %>
-		<%= f.text_field :serial_number %>
-        <%= f.select :quantity, (0..10) %>
-        <%= f.hidden_field :customer_id, :value => @customer.id %>
-        
-      
-
-         
-
- <%= f.submit "Add Parts", class: "btn btn-primary" %>
 <h1> Invoices for this Customer</h1>
 <ul >
-<%  @customer.products.each do |product|
+<%  @customer.owned_products.each do |product|
  product.jobs.each do |job|
  	if(job.invoice!=nil) %>
 
@@ -54,7 +41,7 @@ product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Creat
 <div class="col-md-4">
 <h1>Jobs for this Customer</h1>
 <ul >
-<%  @customer.products.each do |product|
+<%  @customer.owned_products.each do |product|
  product.jobs.each do |job|%>
 
 <li><%= link_to job.created_at.strftime("%B %d, %Y")+" "+job.reported_fault,job_path(id:job.id)%></li> 
