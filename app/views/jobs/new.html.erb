@@ -24,7 +24,7 @@
 <%= f.text_field :reported_fault %>
 <%= f.label :engineer_id,"Engineer" %>
 <%= f.collection_select :engineer_id,Engineer.all,:id,:name, include_blank: true  %>
-<%= f.hidden_field(:product_id,value:params[:product_id]) %>
+<%= f.hidden_field(:customer_product_id,value:customer_product.id) %>
 <%= f.label(:status_unallocated, "Unallocated") %>
 <%= f.radio_button(:status, "unallocated") %>
 <%= f.label(:status_allocated, "Allocated") %>

@@ -24,11 +24,13 @@ Enginner Comments: <%= job.report %>
 </p>
 <h1>Create Invoice</h1>
 <%= form_for(@invoice) do|f| %>
+<div class="form-group">
 <%= f.label :invoice_number %>
 <%= f.text_field :invoice_number %>
+</div>
 <%= f.hidden_field(:job_id,value:params[:job_id]) %>
 
-<%= f.submit "Create Invoice" %>
+<%= f.submit "Create Invoice" ,:class=>"btn btn-primary"%>
 <% end %>
 </div>
 
