@@ -1,15 +1,17 @@
 <% provide(:side_content, 'layouts/parts')%> 
 <div class ="row">
-<div class="col-md-6">
+<div class="col-md-3">
 <h1> Part Details</h1>
 <p>
 <%= @part.part_number %><br>
 <%= @part.description %><br>
 Cost: &euro;<%= @part.cost %><br>
 Quantity in stock: <%= @part.quantity_in_stock %><br>
-
+<%= link_to "Edit this Part", edit_part_path(@part) %><br>
+<%= link_to 'Delete this Part', @part, method: :delete, data: { confirm: 'Are you sure you want to delete this part?' } %>
 </p>
-
+</div>
+<div class="col-md-9">
 <h1>Part History</h1>
 <% if @part.used_on_jobs.size!=0 %>
 <table>
@@ -21,14 +23,14 @@ Quantity in stock: <%= @part.quantity_in_stock %><br>
 <% job_part_items=JobPart.where(job_id:job.id,part_id:@part.id) %>
 <% job_part_item=job_part_items[0] %>
 <% quantity=job_part_item.quantity %>
-<tr><td><%= job.created_at.strftime("%B %d, %Y") %></td><td><%= link_to job.reported_fault,job %></td><td></td><td><%= quantity %></td></tr>
+<tr><td><%= job.created_at.strftime("%B %d, %Y") %></td><td><%= link_to job.reported_fault,job %></td><td><%= quantity %></td></tr>
 <% end %>	
 </tbody>
 </table>
 <% end %>
-</div>
-<div class="col-md-6">
-<h1>Products Where Used</h1>
+
+<h1>Products Where Part is Used</h1>
+<% if @part.used_on_products.size!=0 %>
 <table>
 <thead>
 <tr>
@@ -51,8 +53,7 @@ Quantity in stock: <%= @part.quantity_in_stock %><br>
 
 </tbody>
 </table>
-<%= link_to "Edit this Part", edit_part_path(@part) %>
-<%= link_to 'Delete this Part', @part, method: :delete, data: { confirm: 'Are you sure you want to delete this part?' } %>
+<% end %>
 </div>
 </div>
 
