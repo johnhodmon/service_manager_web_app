@@ -53,13 +53,11 @@ class PartListsController < ApplicationController
 
   # DELETE /part_lists/1
   # DELETE /part_lists/1.json
-  def destroy
-    @part_list.destroy
-    respond_to do |format|
-      format.html { redirect_to part_lists_url, notice: 'Part list was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+ def destroy 
+  @part_list.destroy 
+
+    redirect_to product_path(id:params[:product_id])
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

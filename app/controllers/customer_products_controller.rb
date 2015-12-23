@@ -12,7 +12,7 @@ class CustomerProductsController < ApplicationController
 
 	end
 	def destroy
-	cp=CustomerProduct.find(params[:id]).destroy	
+	CustomerProduct.find(params[:id]).destroy	
 
     redirect_to customer_path(id:params[:customer_id])
 end
