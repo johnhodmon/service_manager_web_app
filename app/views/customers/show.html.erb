@@ -1,7 +1,7 @@
 <% provide(:side_content, 'layouts/customers')%>  
 
 <div class= "row ">
-<div class="col-md-6 information">
+<div class="col-md-4">
 <p>
 <%= @customer.name %> <br>
 <%= @customer.street %><br>
@@ -12,7 +12,9 @@
 
 
 </p>
+</div>
 
+<div class="col-md-4">
 <h1>Customer Products</h1>
 <ul >
 <%  @customer.products.each do |product| %>
@@ -21,8 +23,22 @@
 product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Create Job for this Product", new_job_path(product_id:product.id) %> </p></li> 
 <% end %> 
 </ul>
+<h1>Add Product for this Customer</h1>
+ 
+<h1> Invoices for this Customer</h1>
+<ul >
+<%  @customer.products.each do |product|
+ product.jobs.each do |job|
+ 	if(job.invoice!=nil) %>
+
+<li><%= link_to job.invoice.created_at.strftime("%B %d, %Y")+" "+job.invoice.invoice_number,invoice_path(id:job.invoice.id)%></li> 
+<% end %>
+<% end %>
+<% end %>
+</ul>
 </div>
-<div class="col-md-6 information">
+
+<div class="col-md-4">
 <h1>Jobs for this Customer</h1>
 <ul >
 <%  @customer.products.each do |product|
@@ -34,21 +50,8 @@ product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Creat
 <% end %> 
 </ul>
 </div>
-</div>
-<div class= "row ">
-<div class="col-md-6 information">
-</div>
-<div class="col-md-6 information">
-<h1> Invoices for this Customer</h1>
-<ul >
-<%  @customer.products.each do |product|
- product.jobs.each do |job|
- 	if(job.invoice!=nil) %>
-
-<li><%= link_to job.invoice.created_at.strftime("%B %d, %Y")+" "+job.invoice.invoice_number,invoice_path(id:job.invoice.id)%></li> 
-<% end %>
-<% end %>
-<% end %>
 
 </div>
-</div>
+
+
+
