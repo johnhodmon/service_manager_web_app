@@ -17,8 +17,8 @@
 <ul >
 <%  @customer.products.each do |product| %>
 
-<li><%= link_to product.manufacturer.name+" "+
-product.product_number, product_path(id:product.id) %> </li> 
+<li><h3><%= link_to product.manufacturer.name+" "+
+product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Create Job for this Product", new_job_path(product_id:product.id) %> </p></li> 
 <% end %> 
 </ul>
 </div>

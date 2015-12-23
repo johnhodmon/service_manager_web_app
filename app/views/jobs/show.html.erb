@@ -9,7 +9,8 @@
 <%=customer.street %><br>
 <%=customer.town %><br>
 <%=customer.county %><br>
-
+<%= @job.status %>
+<%= @job.product.description %>
 <h1>Fault Description</h1>
 <p>
 Fault reported on <%= @job.created_at.strftime("%B %d, %Y") %><br>
