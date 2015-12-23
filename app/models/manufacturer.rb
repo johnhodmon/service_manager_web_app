@@ -1,5 +1,5 @@
 class Manufacturer < ActiveRecord::Base
-	has_many :products
+	has_many :products, dependent: :destroy
 	validates :name, presence: true
 	validates :town, presence:true
 	validates :county, presence:true
