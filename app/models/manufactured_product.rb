@@ -1,3 +1,0 @@
-class ManufacturedProduct <Product
-	
-end

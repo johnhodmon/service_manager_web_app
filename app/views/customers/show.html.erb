@@ -24,7 +24,20 @@ product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Creat
 <% end %> 
 </ul>
 <h1>Add Product for this Customer</h1>
- 
+  <%= form_for(:product, url: job_path(id:@customer.id) do |f| %>
+   
+
+         <%= f.select(:product_number, @job.product.bom_parts.collect{|p| [ p.description, p.id ] }, {:include_blank => 'Select a Part'}) %>
+       		<%= f.label :serial_number,"Serial Number" %>
+		<%= f.text_field :serial_number %>
+        <%= f.select :quantity, (0..10) %>
+        <%= f.hidden_field :customer_id, :value => @customer.id %>
+        
+      
+
+         
+
+ <%= f.submit "Add Parts", class: "btn btn-primary" %>
 <h1> Invoices for this Customer</h1>
 <ul >
 <%  @customer.products.each do |product|

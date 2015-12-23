@@ -1,7 +1,8 @@
 class Product < ActiveRecord::Base
 
 	has_many :parts_contained, :through => :part_lists, :source => :part
-	belongs_to :customer
+	has_many :owned_by, :through => :customer_products, :source => :customer
+	has_many :customer_products
 	has_many :jobs
 	has_many :part_lists
 	belongs_to :manufacturer
