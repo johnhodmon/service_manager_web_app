@@ -57,7 +57,7 @@ class JobsController < ApplicationController
   # DELETE /jobs/1.json
   def destroy
     @job.destroy
-    redirect_to job_path(id:1)
+    redirect_to job_path(id:Job.all[0].id)
     
  
   end

@@ -43,7 +43,7 @@ class PartsController < ApplicationController
   def update
     respond_to do |format|
       if @part.update(part_params)
-        format.html { redirect_to @part, notice: 'Part was successfully updated.' }
+        format.html { redirect_to @part}
         format.json { render :show, status: :ok, location: @part }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class PartsController < ApplicationController
   # DELETE /parts/1.json
   def destroy
     @part.destroy
-   redirect_to part_path(id:1)
+   redirect_to part_path(id:Part.all[0].id)
 
   end
 

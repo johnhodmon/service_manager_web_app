@@ -29,11 +29,11 @@
 <ul class="nav nav-tabs nav_project">
  
   
-   <li  role="presentation" class=<%= 'active' if params[:controller] == 'jobs' %>><%= link_to "Jobs", job_path(id:1) %></li>
-  <li role="presentation" class=<%= 'active' if params[:controller] == 'customers' %>><%= link_to "Customers",customer_path(id:1)%></li>
-    <li role="presentation" class=<%= 'active' if params[:controller] == 'products' %>><%= link_to "Products",product_path(id:1)%></li>
-   <li role="presentation" class=<%= 'active' if params[:controller] == 'invoices' %>><%= link_to "Invoices",invoice_path(id:1)%></li>
-   <li role="presentation" class=<%= 'active' if params[:controller] == 'parts' %>><%= link_to "Stock Control",part_path(id:1)%></li>
+   <li  role="presentation" class=<%= 'active' if params[:controller] == 'jobs' %>><%= link_to "Jobs", job_path(id:Job.all[0].id) %></li>
+  <li role="presentation" class=<%= 'active' if params[:controller] == 'customers' %>><%= link_to "Customers",customer_path(id:Customer.all[0].id)%></li>
+    <li role="presentation" class=<%= 'active' if params[:controller] == 'products' %>><%= link_to "Products",product_path(id:Product.all[0].id)%></li>
+   <li role="presentation" class=<%= 'active' if params[:controller] == 'invoices' %>><%= link_to "Invoices",invoice_path(id:Invoice.all[0].id)%></li>
+   <li role="presentation" class=<%= 'active' if params[:controller] == 'parts' %>><%= link_to "Stock Control",part_path(id:Part.all[0].id)%></li>
 
    
  

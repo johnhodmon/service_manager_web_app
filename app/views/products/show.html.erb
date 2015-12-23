@@ -1,6 +1,8 @@
 <% provide(:side_content, 'layouts/products')%> 
 <div class ="row">
 <div class="col-md-6">
+<%= link_to "Edit this Product", edit_product_path(@product) %>
+<%= link_to 'Delete this Product', @product, method: :delete, data: { confirm: 'Are you sure you want to delete this product?' } %>
 <h1>Manufacturer<h1>
 <p>
 <%= @product.manufacturer.name %><br>
