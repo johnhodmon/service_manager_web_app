@@ -33,6 +33,17 @@
 
 <% end %>
 
+<h1> Add Part to Parts List</h1>
+ <%= form_for(:part_list, url:product_path(product_id:@product.id)) do |f| %>
+   
+        <%= f.hidden_field :product_id, :value => @product.id %>
+         <%= f.label :part_id,"Part" %>   
+       <%= f.collection_select :part_id,Part.all,:id,:description, include_blank:"Select Part"  %>
+           <%= f.label :quantity%>  
+         <%= f.select :quantity, (0..10) %>
+ <%= f.submit "Add Part" %>
+ <% end %>
+
 </tbody>
 </table>
 </div>

@@ -30,6 +30,7 @@ Rails.application.routes.draw do
 
   post 'customers/:id'=>'customer_products#create'
   post 'jobs/:id'=>'job_parts#create'
+  post 'products/:id'=>'part_lists#create'
 
 
 
