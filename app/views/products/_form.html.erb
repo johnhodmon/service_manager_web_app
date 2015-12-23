@@ -11,10 +11,7 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :serial_number %><br>
-    <%= f.text_field :serial_number %>
-  </div>
+
   <div class="field">
     <%= f.label :product_number %><br>
     <%= f.text_field :product_number %>
@@ -25,7 +22,8 @@
   </div>
   <div class="field">
     <%= f.label :manufacturer_id %><br>
-    <%= f.number_field :manufacturer_id %>
+   
+<%= f.collection_select :manufacturer_id,Manufacturer.all,:id,:name, include_blank:"Select Manufacturer"  %>
   </div>
   <div class="actions">
     <%= f.submit %>

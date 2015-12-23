@@ -28,7 +28,8 @@ product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Creat
    
 
       <%= f.label :product_id,"Product" %>
-<%= f.collection_select :product_id,Product.all,:id,:description, include_blank: true  %>
+       <%= f.select(:product_id, Product.all.collect{|p| [ p.manufacturer.name+" "+p.product_number, p.id ] }, {:include_blank => 'Select a Product'}) %>
+
         <%= f.hidden_field :customer_id, :value => @customer.id %>
         <%= f.label :serial_number %>
 <%= f.text_field :serial_number %>

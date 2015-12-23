@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
 
   post 'customers/:id'=>'customer_products#create'
+  post 'jobs/:id'=>'job_parts#create'
 
 
 

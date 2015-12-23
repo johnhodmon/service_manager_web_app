@@ -28,7 +28,7 @@ class PartListsController < ApplicationController
 
     respond_to do |format|
       if @part_list.save
-        format.html { redirect_to @part_list, notice: 'Part list was successfully created.' }
+        format.html { redirect_to product_path(id:params[:product_id])}
         format.json { render :show, status: :created, location: @part_list }
       else
         format.html { render :new }

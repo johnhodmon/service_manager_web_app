@@ -29,7 +29,7 @@ class InvoicesController < ApplicationController
 
     respond_to do |format|
       if @invoice.save
-        format.html { redirect_to @invoice, notice: 'Invoice was successfully created.' }
+        format.html { redirect_to @invoice }
         format.json { render :show, status: :created, location: @invoice }
       else
         format.html { render :new }

@@ -29,7 +29,7 @@ class PartsController < ApplicationController
 
     respond_to do |format|
       if @part.save
-        format.html { redirect_to @part, notice: 'Part was successfully created.' }
+        format.html { redirect_to @part}
         format.json { render :show, status: :created, location: @part }
       else
         format.html { render :new }

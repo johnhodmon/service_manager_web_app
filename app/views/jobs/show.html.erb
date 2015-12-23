@@ -52,6 +52,7 @@ though it is complete. <%= link_to "invoice this job", new_invoice_path(job_id:@
 as it is not yet complete
 <% end %>
 <% end %>
+<% if @job.status=='complete' %>
 <h1>Parts Used on this Job</h1>
 <table>
 <thead>
@@ -64,6 +65,22 @@ as it is not yet complete
 <% quantity=job_part_item.quantity %>
 <tr><td><%= link_to part.part_number,part %></td><td><%= part.description %></td><td></td><td><%= quantity %></td></tr>
 <% end %> 
+
 </tbody>
 </table>
+<h1>Add Part used on this Job</h1>
+ <%= form_for(:job_part, url:job_path(job_id:@job.id)) do |f| %>
+   
+        <%= f.hidden_field :job_id, :value => @job.id %>
+         <%= f.label :part_id,"Part" %>   
+       <%= f.select(:part_id, @job.customer_product.product.parts_contained.collect{|p| [ p.description, p.id ] }, {:include_blank => 'Select a Part'}) %>
+           <%= f.label :quantity%>  
+         <%= f.select :quantity, (0..10) %>
+ <%= f.submit "Add Part" %>
+ <% end %>
+<% end %> 
+
+
+     
+
 

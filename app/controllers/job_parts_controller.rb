@@ -25,16 +25,11 @@ class JobPartsController < ApplicationController
   # POST /job_parts.json
   def create
     @job_part = JobPart.new(job_part_params)
-
-    respond_to do |format|
-      if @job_part.save
-        format.html { redirect_to @job_part, notice: 'Job part was successfully created.' }
-        format.json { render :show, status: :created, location: @job_part }
-      else
-        format.html { render :new }
-        format.json { render json: @job_part.errors, status: :unprocessable_entity }
-      end
-    end
+    if @job_part.save
+      
+    redirect_to job_path(id:params[:job_id])
+end
+ 
   end
 
   # PATCH/PUT /job_parts/1
