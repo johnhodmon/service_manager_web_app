@@ -515,8 +515,8 @@ job3=Job.create(reported_fault:"Noise from machine",status:'complete',report:'Re
 job4=Job.create(reported_fault:"Machine will not turn on",status:'complete', report:'Replaced controller rewired door switch',labour_time:1.00,miles: 25);
 job5=Job.create(reported_fault:"Machine will not empty",status:'unallocated');
 job6=Job.create(reported_fault:"Ring not working",status:'complete', report:'replaced ring and rheostat.',labour_time:1.00,miles: 25);
-job7=Job.create(reported_fault:"Nothing working on cooker",status:'allocated');
-job8=Job.create(reported_fault:"Machine full of water",status:'allocated');
+job7=Job.create(reported_fault:"Nothing working on cooker",status:'complete',report:'rewiring required',labour_time: 1.45, miles: 17);
+job8=Job.create(reported_fault:"Machine full of water",status:'complete',report:"replaced drain pump",labour_time: 1.5, miles:15 );
 job9=Job.create(reported_fault:"Machine leaking",status:'allocated');
 
 #invoice jobs
@@ -532,6 +532,8 @@ job3.engineer=eng5
 job4.engineer=eng4
 job5.engineer=eng4
 job6.engineer=eng5
+job7.engineer=eng1
+job8.engineer=eng3
 
 #assign the products to jobs (back to front way of doing it but ok for seeding)
 cp1.jobs<<job1
@@ -548,6 +550,7 @@ cp5.jobs<<job9
 JobPart.create(job_id:job1.id,part_id:hotpoint_oven_element.id,quantity:'1')
 JobPart.create(job_id:job3.id,part_id:indesit_bearing.id,quantity:'1')
 JobPart.create(job_id:job4.id,part_id:bosch_controller.id,quantity:'1')
+JobPart.create(job_id:job8.id,part_id:bosch_drain_pump.id,quantity:'1')
 
 
 
