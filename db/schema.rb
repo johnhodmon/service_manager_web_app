@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151223090915) do
+ActiveRecord::Schema.define(version: 20151223094906) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20151223090915) do
     t.integer  "micropost_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+  end
+
+  create_table "customer_products", force: :cascade do |t|
+    t.integer  "customer_id"
+    t.integer  "product_id"
+    t.string   "serial_number"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "customers", force: :cascade do |t|
@@ -65,13 +73,14 @@ ActiveRecord::Schema.define(version: 20151223090915) do
     t.integer  "travel_time"
     t.integer  "labour_time"
     t.integer  "engineer_id"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
     t.integer  "product_id"
     t.integer  "invoice_id"
     t.string   "status"
     t.string   "report"
     t.integer  "miles"
+    t.integer  "customer_product_id"
   end
 
   create_table "manufacturers", force: :cascade do |t|

@@ -51,103 +51,73 @@
 
  
 
-      beko=Manufacturer.create(name:" Beko plc", street:"1 Greenhill Crescent",town:"Watford",
+      beko=Manufacturer.create(name:" Beko", street:"1 Greenhill Crescent",town:"Watford",
         county:"Hertz", country:"England", phone:"00448009172018",email:"info@beko.com")
 
-      electrolux=Manufacturer.create(name:"Electrolux ltd", street:"Unit 4 Whitemill Industrial Est.",town:"Wexford",
+      electrolux=Manufacturer.create(name:"Electrolux", street:"Unit 4 Whitemill Industrial Est.",town:"Wexford",
         county:"Wexford", country:"Ireland", phone:"0053539126300",email:"info@electrolux.com")
 
-      belling=Manufacturer.create(name:" Belling plc", street:"Stoney Lane",town:"Prescot ",
+      belling=Manufacturer.create(name:" Belling", street:"Stoney Lane",town:"Prescot ",
         county:"Merseyside", country:"England", phone:"00443448153746",email:"info@belling.com")
 
-      indesit=Manufacturer.create(name:" Indesit Company UK Ltd", street:"Morley Way,",town:"Peterborough",
+      indesit=Manufacturer.create(name:" Indesit", street:"Morley Way,",town:"Peterborough",
         county:"Cambridgeshire", country:"England", phone:"00441733568989",email:"info@beko.com")
 
-      hotpoint=Manufacturer.create(name:" Hotpoint Lts", street:"25 Kenley Crescent",town:"Cork",
+      hotpoint=Manufacturer.create(name:" Hotpoint", street:"25 Kenley Crescent",town:"Cork",
         county:"Cork", country:"Ireland", phone:"003532155987552",email:"info@hotpoint.ie")
 
-      bosch=Manufacturer.create(name:" Robert Bosch GmbH", street:"Postfach 30 02 40",town:"Stuttgart",
+      bosch=Manufacturer.create(name:"Bosch", street:"Postfach 30 02 40",town:"Stuttgart",
         county:"Hertz", country:"Germany", phone:"00497118110",email:"info@bosch.de")
 
-      electrolux=Manufacturer.create(name:"Electrolux plc", street:"Addington Way",town:"Luton",
-        county:"Bedfordshire", country:"England", phone:"00443445613613.",email:"info@electrolux.co.uk")
-
+ 
 
 
 
  #products  
 
-  hotpoint_cooker=Product.create(manufacturer_id:beko.id,serial_number:'12345679',
+  hotpoint_cooker=Product.create(manufacturer_id:beko.id,
         product_number:'ECK6461', 
         description:'Cooker, free standing, 60 CM, Electric',image_file:'hotpoint_cooker.png'
        )     
 
-    electrolux_cooker=Product.create(manufacturer_id:electrolux.id,serial_number:'12345680',
+    electrolux_cooker=Product.create(manufacturer_id:electrolux.id,
         product_number:'ECK6461', 
         description:'Cooker, free standing, 60 CM, Electric',image_file:'electrolux_cooker.png'
        )
 
-    belling_cooker=Product.create(manufacturer_id:belling.id,serial_number:'12345681',
+    belling_cooker=Product.create(manufacturer_id:belling.id,
         product_number:'FSE60DOBLK', 
         description:'Cooker, double oven, electric',image_file:'belling_cooker.png'
        )
 
 
-    beko_cooker=Product.create(manufacturer_id:beko.id,serial_number:'12345682',
+    beko_cooker=Product.create(manufacturer_id:beko.id,
         product_number:'BSVC563AK', 
         description:'Cooker, double oven, electric',image_file:'beko_cooker.jpg'
       )
 
-    indesit_washing_machine=Product.create(manufacturer_id:indesit.id,serial_number:'12345683',
+    indesit_washing_machine=Product.create(manufacturer_id:indesit.id,
         product_number:'IWSD61251', 
         description:'Washing machine, 6KG, A+',image_file:'indesit_machine.png'
        ) 
 
 
-    bosch_washing_machine=Product.create(manufacturer_id:bosch.id,serial_number:'12345684',
+    bosch_washing_machine=Product.create(manufacturer_id:bosch.id,
         product_number:'WAT24460GB', 
         description:'Washing machine, 8KG',image_file:'bosch_machine.png'
        ) 
 
-    hotpoint_washing_machine=Product.create(manufacturer_id:hotpoint.id,serial_number:'12345685',
+    hotpoint_washing_machine=Product.create(manufacturer_id:hotpoint.id,
         product_number:'WMBF944G', 
         description:'Washing machine, 9KG, A+++, 1400 Spin',image_file:'hotpoint_machine.png'
      )
 
-        beko_washing_machine=Product.create(manufacturer_id:beko.id,serial_number:'12345686',
+        beko_washing_machine=Product.create(manufacturer_id:beko.id,
         product_number:'WMG 11464', 
         description:'Washing Machine, 11KG, 1400 Spin',image_file:'beko_machine.png')
       
 
-#add products to customers
 
-          customer = Customer.find_by_email("stellabyrne@jmail.com")
-    customer.products << hotpoint_cooker 
-      customer.products << electrolux_cooker
-
-       customer = Customer.find_by_email("roymurphy@jmail.com")
-        customer.products << belling_cooker
-
-
-       customer = Customer.find_by_email("ciaranmeaney@jmail.com")
-        customer.products << beko_cooker 
-        customer.products << indesit_washing_machine
-     
-
-         customer = Customer.find_by_email("roynolan@jmail.com")
-
-      
-            customer.products << bosch_washing_machine
-
-
-         customer = Customer.find_by_email("mhennessey@jmail.com")
-
-        customer.products << beko_washing_machine 
-
-
-         customer = Customer.find_by_email("omurphy@jmail.com")
-
-            customer.products << hotpoint_washing_machine
 
 
 #Washing machine parts
@@ -526,7 +496,18 @@ invoice3=Invoice.create(invoice_number:'inv_5002147')
 invoice4=Invoice.create(invoice_number:'inv_5002149')
 invoice6=Invoice.create(invoice_number:'inv_5002150')
 
-#add jobs to customers
+
+#create customer products
+cp1=CustomerProduct.create(customer_id:c1.id,product_id:hotpoint_cooker.id, serial_number:'12345678')
+cp2=CustomerProduct.create(customer_id:c1.id,product_id:indesit_washing_machine.id, serial_number:'12345679')
+cp3=CustomerProduct.create(customer_id:c2.id,product_id:beko_cooker.id, serial_number:'12345680')
+cp4=CustomerProduct.create(customer_id:c3.id,product_id:belling_cooker.id, serial_number:'12345681')
+cp5=CustomerProduct.create(customer_id:c3.id,product_id:hotpoint_washing_machine.id, serial_number:'12345682')
+cp6=CustomerProduct.create(customer_id:c4.id,product_id:beko_washing_machine.id, serial_number:'12345683')
+cp7=CustomerProduct.create(customer_id:c5.id,product_id:electrolux_cooker.id, serial_number:'12345684')
+cp8=CustomerProduct.create(customer_id:c6.id,product_id:bosch_washing_machine.id, serial_number:'12345685')
+
+#create jobs
 ################################
 job1=Job.create(reported_fault:"Oven not working",status:'complete',report:'Replaced oven element',labour_time: 1.25, miles: 59);
 job2=Job.create(reported_fault:"Grill not working",status:'unallocated');
@@ -553,20 +534,20 @@ job5.engineer=eng4
 job6.engineer=eng5
 
 #assign the products to jobs (back to front way of doing it but ok for seeding)
-hotpoint_cooker.jobs<<job1
-hotpoint_cooker.jobs<<job2
-indesit_washing_machine.jobs<<job3
-indesit_washing_machine.jobs<<job4
-beko_washing_machine.jobs<<job5
-beko_cooker.jobs<<job6
-electrolux_cooker.jobs<<job7
-bosch_washing_machine.jobs<<job8
-hotpoint_washing_machine.jobs<<job9
+cp1.jobs<<job1
+cp1.jobs<<job2
+cp2.jobs<<job3
+cp8.jobs<<job4
+cp6.jobs<<job5
+cp3.jobs<<job6
+cp7.jobs<<job7
+cp8.jobs<<job8
+cp5.jobs<<job9
 
 #add parts used on jobs
 JobPart.create(job_id:job1.id,part_id:hotpoint_oven_element.id,quantity:'1')
 JobPart.create(job_id:job3.id,part_id:indesit_bearing.id,quantity:'1')
-JobPart.create(job_id:job4.id,part_id:indesit_controller.id,quantity:'1')
+JobPart.create(job_id:job4.id,part_id:bosch_controller.id,quantity:'1')
 
 
 

@@ -3,14 +3,14 @@
 <div class ="col-md-2">
 </div>
 <div class ="col-md-8">
-<% customer=@job.product.customer %>
+<% customer=@job.customer_product.customer %>
 
 <%= link_to customer.name,customer %><br>
 <%=customer.street %><br>
 <%=customer.town %><br>
 <%=customer.county %><br>
 <%= @job.status %>
-<%= @job.product.description %>
+<%= @job.customer_product.product.description %>
 <h1>Fault Description</h1>
 <p>
 Fault reported on <%= @job.created_at.strftime("%B %d, %Y") %><br>

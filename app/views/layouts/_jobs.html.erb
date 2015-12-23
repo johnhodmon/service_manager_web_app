@@ -5,7 +5,7 @@
   <% unallocated=@jobs.select {|job| job.status=='unallocated'} %>
   <% unallocated.each do |job| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.product.manufacturer.name+' '+job.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.customer_product.product.manufacturer.name+' '+job.customer_product.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
     
         <% end %>
 
@@ -17,7 +17,7 @@
   <% unallocated=@jobs.select {|job| job.status=='allocated'} %>
   <% unallocated.each do |job| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.product.manufacturer.name+' '+job.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.customer_product.product.manufacturer.name+' '+job.customer_product.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
     
         <% end %>
 
@@ -29,7 +29,7 @@
   <% unallocated=@jobs.select {|job| job.status=='complete'} %>
   <% unallocated.each do |job| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.product.manufacturer.name+' '+job.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.customer_product.product.manufacturer.name+' '+job.customer_product.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
     
         <% end %>
 
