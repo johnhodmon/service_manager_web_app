@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
  
 
-  resources :job_parts
+  
   resources :invoices
   resources :engineers
   resources :jobs
@@ -29,6 +29,7 @@ Rails.application.routes.draw do
   delete 'logout' => 'sessions#destroy'
   delete 'customer_product'=>'customer_products#destroy'
    delete 'part_list'=>'part_lists#destroy'
+   delete 'job_part'=>'job_parts#destroy'
 
   post 'customers/:id'=>'customer_products#create'
   post 'jobs/:id'=>'job_parts#create'

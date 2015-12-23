@@ -48,13 +48,11 @@ end
 
   # DELETE /job_parts/1
   # DELETE /job_parts/1.json
-  def destroy
-    @job_part.destroy
-    respond_to do |format|
-      format.html { redirect_to job_parts_url, notice: 'Job part was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+def destroy 
+  @job_part.destroy 
+
+    redirect_to job_path(id:params[:job_id])
+end
 
   private
     # Use callbacks to share common setup or constraints between actions.

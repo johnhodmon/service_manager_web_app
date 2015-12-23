@@ -64,7 +64,7 @@ as it is not yet complete
 <% job_part_items=JobPart.where(job_id:@job.id,part_id:part.id) %>
 <% job_part_item=job_part_items[0] %>
 <% quantity=job_part_item.quantity %>
-<tr><td><%= link_to part.part_number,part %></td><td><%= part.description %></td><td></td><td><%= quantity %></td></tr>
+<tr><td><%= link_to part.part_number,part %></td><td><%= part.description %></td><td></td><td><%= quantity %></td><td><%= link_to 'Delete',job_part_path(id:job_part_item.id,job_id:@job.id), method: :delete, data: { confirm: 'Are you sure you want to delete this part from the list?' } %></td></tr>
 <% end %> 
 
 </tbody>
