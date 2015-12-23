@@ -1,6 +1,46 @@
-<h1>Editing Job</h1>
+<% provide(:side_content, 'layouts/blank')%>
 
-<%= render 'form' %>
+<% product=@job.customer_product.product %>
+<% customer=@job.customer_product.customer %>
 
-<%= link_to 'Show', @job %> |
-<%= link_to 'Back', jobs_path %>
+
+<div class="row">
+<div class="col-md-4">
+<%= customer.name %> <br>
+<%= customer.street %><br>
+<%= customer.town %><br>
+<%= customer.county %><br>
+
+
+
+
+
+</div>
+<div class="col-md-4">
+<h1>New Job</h1>
+<%= form_for(@job) do|f| %>
+<%= f.label :reported_fault %>
+<%= f.text_field :reported_fault %>
+<%= f.label :engineer_id,"Engineer" %>
+<%= f.collection_select :engineer_id,Engineer.all,:id,:name, include_blank: true  %>
+<%= f.hidden_field(:product_id,value:params[:product_id]) %>
+<%= f.label(:status_unallocated, "Unallocated") %>
+<%= f.radio_button(:status, "unallocated") %>
+<%= f.label(:status_allocated, "Allocated") %>
+<%= f.radio_button(:status, "allocated") %>
+<%= f.label(:status_complete, "Complete") %>
+<%= f.radio_button(:status, "complete") %>
+<%= f.submit "Edit Job" %>
+<% end %>
+</div>
+<div class ="col-md-4">
+<p>
+<%= product.manufacturer.name %>
+<%= product.product_number %>
+<%= product.description %>
+Serial Number: <%= @job.customer_product.serial_number %>
+</p>
+</div>
+</div>
+
+

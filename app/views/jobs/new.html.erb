@@ -1,6 +1,9 @@
 <% provide(:side_content, 'layouts/blank')%>
 <% product=Product.find(params[:product_id]) %>
-<% customer=product.customer %>
+<% customer=Customer.find(params[:customer_id]) %>
+<% customer_products=CustomerProduct.where(customer_id:customer.id,product_id:product.id) %>
+<% customer_product= customer_products[0] %>
+
 
 <div class="row">
 <div class="col-md-4">
@@ -36,7 +39,7 @@
 <%= product.manufacturer.name %>
 <%= product.product_number %>
 <%= product.description %>
-Serial Number: <%= product.serial_number %>
+Serial Number: <%= customer_product.serial_number %>
 </p>
 </div>
 </div>

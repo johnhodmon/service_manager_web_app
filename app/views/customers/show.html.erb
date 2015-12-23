@@ -20,7 +20,7 @@
 <%  @customer.owned_products.each do |product| %>
 
 <li><h3><%= link_to product.manufacturer.name+" "+
-product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Create Job for this Product", new_job_path(product_id:product.id) %> </p></li> 
+product.product_number, product_path(id:product.id) %></h3><p><%= link_to "Create Job for this Product", new_job_path(product_id:product.id,customer_id:@customer.id) %> </p></li> 
 <% end %> 
 </ul>
 <h1>Add Product for this Customer</h1>

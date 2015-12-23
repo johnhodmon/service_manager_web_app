@@ -1,16 +1,20 @@
 <% provide(:side_content, 'layouts/jobs')%> 
 <div class= "row">
-<div class ="col-md-2">
-</div>
-<div class ="col-md-8">
-<% customer=@job.customer_product.customer %>
 
+<div class ="col-md-4">
+<% customer=@job.customer_product.customer %>
+<% product=@job.customer_product.product %>
+<h1> Customer Details</h1>
+<p>
 <%= link_to customer.name,customer %><br>
 <%=customer.street %><br>
 <%=customer.town %><br>
 <%=customer.county %><br>
 <%= @job.status %>
 <%= @job.customer_product.product.description %>
+</p>
+</div>
+<div class ="col-md-4">
 <h1>Fault Description</h1>
 <p>
 Fault reported on <%= @job.created_at.strftime("%B %d, %Y") %><br>
@@ -35,10 +39,7 @@ Enginner Comments: <%= @job.report %>
 This job has not been completed by an engineer.
 </p>
 <% end %>
-</div>
-<div class ="col-md-2">
-</div>
-</div>
+
 
 <h1> Invoice for this Job</h1>
 <%if @job.invoice %>
@@ -79,8 +80,21 @@ as it is not yet complete
  <%= f.submit "Add Part" %>
  <% end %>
 <% end %> 
+</div>
 
 
+<div class ="col-md-4">
+<h1> Product Details</h1>
+<p>
+<%= product.manufacturer.name %>
+<%= product.product_number %>
+<%= product.description %>
+Serial Number: <%= @job.customer_product.serial_number %>
+</p>
+<%= link_to "Edit this Job", edit_job_path(@job) %>
+<%= link_to 'Delete this Job', @job, method: :delete, data: { confirm: 'Are you sure you want to delete this job?' } %>
+</div>
+</div>
      
 
 

@@ -44,7 +44,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
+        format.html { redirect_to @job}
         format.json { render :show, status: :ok, location: @job }
       else
         format.html { render :edit }
@@ -57,10 +57,9 @@ class JobsController < ApplicationController
   # DELETE /jobs/1.json
   def destroy
     @job.destroy
-    respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to job_path(id:1)
+    
+ 
   end
 
   private
