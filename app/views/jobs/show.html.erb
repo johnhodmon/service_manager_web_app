@@ -31,7 +31,7 @@ Job is <%= @job.status %><br>
 <% if @job.status=='complete' %><br>
 <P>
 Work completed by <%= @job.engineer.name %> <br>
-Enginner Comments: <%= @job.report %>
+Enginner Comments: <%= @job.report.engineer_report %>
 </P>
 
 

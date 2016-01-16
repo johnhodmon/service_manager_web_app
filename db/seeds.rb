@@ -77,44 +77,37 @@
 
   hotpoint_cooker=Product.create(manufacturer_id:beko.id,
         product_number:'ECK6461', 
-        description:'Cooker, free standing, 60 CM, Electric',image_file:'hotpoint_cooker.png'
-       )     
+        description:'Cooker, free standing, 60 CM, Electric')     
 
     electrolux_cooker=Product.create(manufacturer_id:electrolux.id,
         product_number:'ECK6461', 
-        description:'Cooker, free standing, 60 CM, Electric',image_file:'electrolux_cooker.png'
-       )
+        description:'Cooker, free standing, 60 CM, Electric')
 
     belling_cooker=Product.create(manufacturer_id:belling.id,
         product_number:'FSE60DOBLK', 
-        description:'Cooker, double oven, electric',image_file:'belling_cooker.png'
-       )
+        description:'Cooker, double oven, electric')
 
 
     beko_cooker=Product.create(manufacturer_id:beko.id,
         product_number:'BSVC563AK', 
-        description:'Cooker, double oven, electric',image_file:'beko_cooker.jpg'
-      )
+        description:'Cooker, double oven, electric')
 
     indesit_washing_machine=Product.create(manufacturer_id:indesit.id,
         product_number:'IWSD61251', 
-        description:'Washing machine, 6KG, A+',image_file:'indesit_machine.png'
-       ) 
+        description:'Washing machine, 6KG, A+') 
 
 
     bosch_washing_machine=Product.create(manufacturer_id:bosch.id,
         product_number:'WAT24460GB', 
-        description:'Washing machine, 8KG',image_file:'bosch_machine.png'
-       ) 
+        description:'Washing machine, 8KG')      
 
     hotpoint_washing_machine=Product.create(manufacturer_id:hotpoint.id,
         product_number:'WMBF944G', 
-        description:'Washing machine, 9KG, A+++, 1400 Spin',image_file:'hotpoint_machine.png'
-     )
+        description:'Washing machine, 9KG, A+++, 1400 Spin')
 
         beko_washing_machine=Product.create(manufacturer_id:beko.id,
         product_number:'WMG 11464', 
-        description:'Washing Machine, 11KG, 1400 Spin',image_file:'beko_machine.png')
+        description:'Washing Machine, 11KG, 1400 Spin')
       
 
 
@@ -496,7 +489,12 @@ invoice3=Invoice.create(invoice_number:'inv_5002147')
 invoice4=Invoice.create(invoice_number:'inv_5002149')
 invoice6=Invoice.create(invoice_number:'inv_5002150')
 
-
+report1=Report.create(engineer_report:'Replaced oven element')
+report2=Report.create(engineer_report:'Replaced drum bearings and rebalanced machine')
+report3=Report.create(engineer_report:'Replaced controller rewired door switch')
+report4=Report.create(engineer_report:'replaced ring and rheostat.')
+report5=Report.create(engineer_report:'rewiring required')
+report6=Report.create(engineer_report:'replaced drain pump')
 #create customer products
 cp1=CustomerProduct.create(customer_id:c1.id,product_id:hotpoint_cooker.id, serial_number:'12345678')
 cp2=CustomerProduct.create(customer_id:c1.id,product_id:indesit_washing_machine.id, serial_number:'12345679')
@@ -509,14 +507,14 @@ cp8=CustomerProduct.create(customer_id:c6.id,product_id:bosch_washing_machine.id
 
 #create jobs
 ################################
-job1=Job.create(reported_fault:"Oven not working",status:'complete',report:'Replaced oven element',labour_time: 1.25, miles: 59);
+job1=Job.create(reported_fault:"Oven not working",status:'complete',labour_time: 1.25, miles: 59);
 job2=Job.create(reported_fault:"Grill not working",status:'unallocated');
-job3=Job.create(reported_fault:"Noise from machine",status:'complete',report:'Replaced drum bearings and rebalanced machine',labour_time: 2.25,miles: 150 );
-job4=Job.create(reported_fault:"Machine will not turn on",status:'complete', report:'Replaced controller rewired door switch',labour_time:1.00,miles: 25);
+job3=Job.create(reported_fault:"Noise from machine",status:'complete',labour_time: 2.25,miles: 150 );
+job4=Job.create(reported_fault:"Machine will not turn on",status:'complete', labour_time:1.00,miles: 25);
 job5=Job.create(reported_fault:"Machine will not empty",status:'unallocated');
-job6=Job.create(reported_fault:"Ring not working",status:'complete', report:'replaced ring and rheostat.',labour_time:1.00,miles: 25);
-job7=Job.create(reported_fault:"Nothing working on cooker",status:'complete',report:'rewiring required',labour_time: 1.45, miles: 17);
-job8=Job.create(reported_fault:"Machine full of water",status:'complete',report:"replaced drain pump",labour_time: 1.5, miles:15 );
+job6=Job.create(reported_fault:"Ring not working",status:'complete', labour_time:1.00,miles: 25);
+job7=Job.create(reported_fault:"Nothing working on cooker",status:'complete',labour_time: 1.45, miles: 17);
+job8=Job.create(reported_fault:"Machine full of water",status:'complete',labour_time: 1.5, miles:15 );
 job9=Job.create(reported_fault:"Machine leaking",status:'allocated');
 
 #invoice jobs
@@ -524,6 +522,13 @@ job1.invoice=invoice1
 job3.invoice=invoice3
 job4.invoice=invoice4
 job6.invoice=invoice6
+
+job1.report=report1
+job3.report=report2
+job4.report=report3
+job6.report=report4
+job7.report=report5
+job8.report=report6
 
 #allocate engineers to jobs
 job1.engineer=eng1
