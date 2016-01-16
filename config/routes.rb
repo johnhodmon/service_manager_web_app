@@ -3,6 +3,7 @@ Rails.application.routes.draw do
  
 
   
+  resources :reports
   resources :invoices
   resources :engineers
   resources :jobs
