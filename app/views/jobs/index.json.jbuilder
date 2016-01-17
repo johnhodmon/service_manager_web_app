@@ -1,4 +1,5 @@
 json.array!(@jobs) do |job|
-  json.extract! job, :id, :reported_fault,  :labour_time,  :engineer_id
-  json.url job_url(job, format: :json)
+  json.( job, :id, :reported_fault,  :labour_time,  :engineer_id)
+  json.customer job.customer_product.customer
+  json.product  job.customer_product.product 
 end
