@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Customer:</strong>
+  <%= @customer_product.customer_id %>
+</p>
+
+<p>
+  <strong>Product:</strong>
+  <%= @customer_product.product_id %>
+</p>
+
+<p>
+  <strong>Serial number:</strong>
+  <%= @customer_product.serial_number %>
+</p>
+
+<%= link_to 'Edit', edit_customer_product_path(@customer_product) %> |
+<%= link_to 'Back', customer_products_path %>

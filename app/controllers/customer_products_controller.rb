@@ -10,7 +10,12 @@ class CustomerProductsController < ApplicationController
 
 	end
 
+
 	end
+
+	 def index
+    @customer_products = CustomerProduct.all
+  end
 	def destroy
 	CustomerProduct.find(params[:id]).destroy	
 

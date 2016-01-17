@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :engineers
   resources :jobs
   resources :parts
- 
+  resources :customer_products
   resources :customers
   resources :manufacturers
   resources :products
