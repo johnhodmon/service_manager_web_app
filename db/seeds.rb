@@ -4,7 +4,8 @@
          street: "2 south street",
          town: "New Ross",
          county: "Wexford",
-         phone: "0519242233")
+         phone: "0519242233",
+         lat_lng:"52.3954146,-6.9463167")
 
    c2=Customer.create(name:'Roy Murphy', 
         email:'roymurphy@jmail.com',
@@ -12,7 +13,8 @@
          street: "2 bride street",
          town: "Wexford",
          county: "Wexford",
-         phone: "0539124528")
+         phone: "0539124528",
+         lat_lng:"52.3357881,-6.4620682")
 
      c3=Customer.create(name:'Ciaran Meaney', 
         email:'ciaranmeaney@jmail.com',
@@ -20,7 +22,8 @@
          street: "15 Patrick Street",
          town: "Enniscorthy",
          county: "Wexford",
-         phone: "0539255687")
+         phone: "0539255687",
+         lat_lng:"52.5024791,-6.5771034,17")
 
       c4=Customer.create(name:'Rie Nolan', 
         email:'roynolan@jmail.com',
@@ -28,7 +31,8 @@
          street: "Ballyhack",
          town: "New Ross",
          county: "Wexford",
-         phone: "0513892305")
+         phone: "0513892305",
+         lat_lng:"52.2484872,-6.9729682,15")
 
          c5=Customer.create(name:'Mary Hennessey', 
         email:'mhennessey@jmail.com',
@@ -36,7 +40,8 @@
          street: "16 The Faythe",
          town: "Wexford",
          county: "Wexford",
-         phone: "0539155876")
+         phone: "0539155876",
+         lat_lng:"52.3310768,-6.4573347")
 
              c6=Customer.create(name:'Olly Murphy', 
         email:'omurphy@jmail.com',
@@ -44,7 +49,8 @@
          street: "Beach View",
          town: "Duncannon",
          county: "Wexford",
-         phone: "0515587657")
+         phone: "0515587657",
+         lat_lng:"52.220624,-6.9413368")
 
  #add manufacturers
    
