@@ -1,1 +1,8 @@
-json.extract! @job, :id, :reported_fault, :travel_time, :labour_time, :product_id, :engineer_id, :created_at, :updated_at
+json.( @job, :id, :reported_fault, :miles, :labour_time, :status)
+ json.customer @job.customer_product.customer
+  json.product  @job.customer_product.product 
+  json.manufacturer @job.customer_product.product.manufacturer 
+
+
+
+
