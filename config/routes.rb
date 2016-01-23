@@ -13,21 +13,8 @@ Rails.application.routes.draw do
   resources :customers
   resources :manufacturers
   resources :products
-  root  'static_pages#home'
 
-  get 'help' => 'static_pages#help'
-
-  get 'about' => 'static_pages#about'
-
-  get 'contact' => 'static_pages#contact'
-
-  get 'signup' => 'users#new'
-
-  get 'login' => 'sessions#new'
-
-  post 'login' => 'sessions#create'
-
-  delete 'logout' => 'sessions#destroy'
+ 
   delete 'customer_product'=>'customer_products#destroy'
    delete 'part_list'=>'part_lists#destroy'
    delete 'job_part'=>'job_parts#destroy'
