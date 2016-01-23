@@ -10,7 +10,11 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
+      if logged_in?
     @products = Product.all
+      else
+    redirect_to login_path
+  end
   end
 
   # GET /products/new

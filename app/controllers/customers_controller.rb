@@ -10,13 +10,23 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
+    if logged_in?
       @customers = Customer.all
+
+    else
+      redirect_to login_path
+    end
      
   end
 
   # GET /customers/new
   def new
+     if logged_in?
     @customer = Customer.new
+
+      else
+      redirect_to login_path
+    end
   end
 
   # GET /customers/1/edit
@@ -26,6 +36,8 @@ class CustomersController < ApplicationController
   # POST /customers
   # POST /customers.json
   def create
+
+     if logged_in?
     @customer = Customer.new(customer_params)
 
     respond_to do |format|
@@ -37,11 +49,16 @@ class CustomersController < ApplicationController
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
     end
+
+        else
+      redirect_to login_path
+    end
   end
 
   # PATCH/PUT /customers/1
   # PATCH/PUT /customers/1.json
   def update
+     if logged_in?
     respond_to do |format|
       if @customer.update(customer_params)
         format.html { redirect_to @customer}
@@ -50,6 +67,10 @@ class CustomersController < ApplicationController
         format.html { render :edit }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
       end
+    end
+
+         else
+      redirect_to login_path
     end
   end
 

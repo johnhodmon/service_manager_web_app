@@ -10,7 +10,11 @@ class PartsController < ApplicationController
   # GET /parts/1
   # GET /parts/1.json
   def show
+    if logged_in?
      @parts = Part.all
+   else
+    redirect_to login_path
+  end
   end
 
   # GET /parts/new

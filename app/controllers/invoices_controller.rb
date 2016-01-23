@@ -10,7 +10,12 @@ class InvoicesController < ApplicationController
   # GET /invoices/1
   # GET /invoices/1.json
   def show
+    if logged_in?
       @invoices = Invoice.all
+
+    else
+      redirect_to login_path
+    end
   end
 
   # GET /invoices/new

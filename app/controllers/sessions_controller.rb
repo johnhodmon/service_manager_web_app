@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
       	user=User.find_by(email: params[:session][:email].downcase)
       	if(user&&user.authenticate(params[:session][:password]))
           remember (user)
-      		redirect_to user
+      		redirect_to job_path(id:Job.all[0].id)
 
       	else
       		flash.now[:danger]='Invalid log in, try again'
