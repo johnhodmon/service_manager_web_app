@@ -3,6 +3,8 @@ Rails.application.routes.draw do
  
 
   
+  
+
   resources :users
   resources :reports
   resources :invoices
@@ -23,7 +25,9 @@ Rails.application.routes.draw do
   post 'jobs/:id'=>'job_parts#create'
   post 'products/:id'=>'part_lists#create'
 
-
+get 'login' => 'sessions#new'
+post 'login'=> 'sessions#create'
+delete 'logout' =>'sessions#destroy'
 
 
 
