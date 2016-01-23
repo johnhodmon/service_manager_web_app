@@ -3,6 +3,7 @@ Rails.application.routes.draw do
  
 
   
+  resources :users
   resources :reports
   resources :invoices
   resources :engineers
@@ -12,7 +13,6 @@ Rails.application.routes.draw do
   resources :customers
   resources :manufacturers
   resources :products
-  resources :users
   root  'static_pages#home'
 
   get 'help' => 'static_pages#help'
