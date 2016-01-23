@@ -1,3 +1,4 @@
+ User.create(name: 'Edel Dodd', email:'edodd@servicemanager.ie',password:'secret',password_confirmation:'secret')
  c1=Customer.create(name:'Stella Byrne', 
         email:'stellabyrne@jmail.com',
        
