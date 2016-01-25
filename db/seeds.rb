@@ -1,6 +1,4 @@
- User.create(name: 'Edel Dodd', email:'edodd@servicemanager.ie',password:'secret',password_confirmation:'secret')
-  User.create(name: 'John Hodmon', email:'jh@jmail.com',password:'pass',password_confirmation:'pass')
-
+ 
  c1=Customer.create(name:'Stella Byrne', 
         email:'stellabyrne@jmail.com',
        
@@ -484,12 +482,8 @@ PartList.create(product_id:beko_washing_machine.id,part_id:beko_bearing.id,quant
 PartList.create(product_id:beko_washing_machine.id,part_id:beko_drain_pump.id,quantity:'1')
 PartList.create(product_id:beko_washing_machine.id,part_id:beko_door_seal.id,quantity:'1')
 PartList.create(product_id:beko_washing_machine.id,part_id:beko_controller.id,quantity:'1')
-#add enginners
-eng1=Engineer.create(name:'John Hodmon', email:'johnhodmon@email.com')     
-eng2=Engineer.create(name:'Pat Hogan', email:'phogan@email.com')   
-eng3=Engineer.create(name:'Roy Doyle', email:'rdoyle@email.com')   
-eng4=Engineer.create(name:'Francis Ryan', email:'uryan@email.com')   
-eng5=Engineer.create(name:'Peter Dempsey', email:'pdempsey@email.com')   
+
+
 
 #invoices
 
@@ -538,16 +532,24 @@ job4.report=report3
 job6.report=report4
 job7.report=report5
 job8.report=report6
+#users (admin and engineers)
+#u1=Office_Administrator.create(name: 'Edel Dodd', email:'edodd@servicemanager.ie',password:'secret',password_confirmation:'secret')
+  u2=Engineer.create(name: 'John Hodmon', email:'jhodmon@servicemanager.ie',password:'secret',password_confirmation:'secret')
+  u3=Engineer.create(name: 'Pat Hogan', email:'phogan@servicemanager.ie',password:'secret',password_confirmation:'secret')
+  u4=Engineer.create(name: 'Roy Doyle', email:'rdoyle@servicemanager.ie',password:'secret',password_confirmation:'secret')
+  u5=Engineer.create(name: 'Francis Ryan', email:'fryan@servicemanager.ie',password:'secret',password_confirmation:'secret')
+  u6=Engineer.create(name: 'Peter Dempsey', email:'pdempsey@servicemanager.ie',password:'secret',password_confirmation:'secret')
+
 
 #allocate engineers to jobs
-job1.engineer=eng1
-job2.engineer=eng1
-job3.engineer=eng5
-job4.engineer=eng4
-job5.engineer=eng4
-job6.engineer=eng5
-job7.engineer=eng1
-job8.engineer=eng3
+job1.engineer=u2
+job2.engineer=u2
+job3.engineer=u6
+job4.engineer=u5
+job5.engineer=u5
+job6.engineer=u6
+job7.engineer=u2
+job8.engineer=u4
 
 #assign the products to jobs (back to front way of doing it but ok for seeding)
 cp1.jobs<<job1

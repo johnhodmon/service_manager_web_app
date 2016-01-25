@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160123172617) do
+ActiveRecord::Schema.define(version: 20160125211737) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -42,15 +42,8 @@ ActiveRecord::Schema.define(version: 20160123172617) do
   end
 
   create_table "engineers", force: :cascade do |t|
-    t.string   "name"
-    t.string   "email"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.string   "street"
-    t.string   "town"
-    t.string   "county"
-    t.string   "phone_number"
-    t.string   "pps"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "invoices", force: :cascade do |t|
@@ -98,6 +91,11 @@ ActiveRecord::Schema.define(version: 20160123172617) do
     t.string   "country"
   end
 
+  create_table "office_administrators", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "part_lists", force: :cascade do |t|
     t.integer  "product_id"
     t.integer  "part_id"
@@ -137,6 +135,7 @@ ActiveRecord::Schema.define(version: 20160123172617) do
     t.datetime "updated_at",      null: false
     t.string   "password_digest"
     t.string   "remember_digest"
+    t.string   "type"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
