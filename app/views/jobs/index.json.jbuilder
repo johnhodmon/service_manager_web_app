@@ -5,4 +5,6 @@ json.array!(@jobs) do |job|
   json.manufacturer job.customer_product.product.manufacturer 
   json.report job.report 
   
+  
+  
 end

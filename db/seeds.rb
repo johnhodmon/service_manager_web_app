@@ -1,4 +1,6 @@
  User.create(name: 'Edel Dodd', email:'edodd@servicemanager.ie',password:'secret',password_confirmation:'secret')
+  User.create(name: 'John Hodmon', email:'jh@jmail.com',password:'pass',password_confirmation:'pass')
+
  c1=Customer.create(name:'Stella Byrne', 
         email:'stellabyrne@jmail.com',
        
