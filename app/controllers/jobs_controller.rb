@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   def index
     if logged_in?
    
-    @jobs = Job.all
+    @jobs = Job.where(engineer_id:current_user.id)
 
   else
     redirect_to login_path
