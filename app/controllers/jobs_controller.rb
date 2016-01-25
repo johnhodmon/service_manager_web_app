@@ -5,24 +5,24 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-   # if logged_in?
+    if logged_in?
    
     @jobs = Job.all
 
- # else
-    #redirect_to login_path
-  #end
+  else
+    redirect_to login_path
+  end
   end
 
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-    # if logged_in?
+     if logged_in?
       
      @jobs = Job.all
-      #else
-    #redirect_to login_path
- # end
+      else
+    redirect_to login_path
+ end
   end
 
   # GET /jobs/new

@@ -4,12 +4,17 @@ class ReportsController < ApplicationController
   # GET /reports
   # GET /reports.json
   def index
+    if logged_in?
     @reports = Report.all
+    else
+    redirect_to login_path
+  end
   end
 
   # GET /reports/1
   # GET /reports/1.json
   def show
+
   end
 
   # GET /reports/new
@@ -40,7 +45,10 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1
   # PATCH/PUT /reports/1.json
   def update
+
+     if logged_in?
     respond_to do |format|
+
       if @report.update(report_params)
         format.html { redirect_to @report, notice: 'Report was successfully updated.' }
         format.json { render :show, status: :ok, location: @report }
@@ -49,6 +57,9 @@ class ReportsController < ApplicationController
         format.json { render json: @report.errors, status: :unprocessable_entity }
       end
     end
+      else
+    redirect_to login_path
+  end
   end
 
   # DELETE /reports/1
