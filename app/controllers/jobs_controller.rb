@@ -6,8 +6,11 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     if logged_in?
-   
-    @jobs = Job.where(engineer_id:current_user.id)
+   if(current_user.type="Engineer")
+        @jobs = Job.where(engineer_id:current_user.id)
+      elsif (current_user.type="OfficeAdministrator")
+        @jobs = Job.all
+      end
 
   else
     redirect_to login_path

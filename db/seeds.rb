@@ -533,7 +533,7 @@ job6.report=report4
 job7.report=report5
 job8.report=report6
 #users (admin and engineers)
-#u1=Office_Administrator.create(name: 'Edel Dodd', email:'edodd@servicemanager.ie',password:'secret',password_confirmation:'secret')
+    u1=OfficeAdministrator.create(name: 'Edel Dodd', email:'edodd@servicemanager.ie',password:'secret',password_confirmation:'secret')
   u2=Engineer.create(name: 'John Hodmon', email:'jhodmon@servicemanager.ie',password:'secret',password_confirmation:'secret')
   u3=Engineer.create(name: 'Pat Hogan', email:'phogan@servicemanager.ie',password:'secret',password_confirmation:'secret')
   u4=Engineer.create(name: 'Roy Doyle', email:'rdoyle@servicemanager.ie',password:'secret',password_confirmation:'secret')
