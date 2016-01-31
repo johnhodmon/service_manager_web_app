@@ -139,7 +139,7 @@ hotpoint_drum=Part.create(part_number: '31005002',
     quantity_in_stock: '45',
     cost: '93.20')
 
-beko_drum=Part.create(part_number: '31005002',
+beko_drum=Part.create(part_number: '31005003',
     description: 'Drum Washing Machine Hotpoint',
     quantity_in_stock: '45',
     cost: '93.20')
