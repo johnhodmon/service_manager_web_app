@@ -4,6 +4,8 @@ json.( @job, :id, :reported_fault, :miles, :labour_time, :status)
   json.manufacturer @job.customer_product.product.manufacturer 
   json.report @job.report 
   json.job_parts @job.job_parts
+  json.part_lists @job.customer_product.product.part_lists
+
   
 
 

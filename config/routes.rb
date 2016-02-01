@@ -30,6 +30,7 @@ get 'login' => 'sessions#new'
 post 'login'=> 'sessions#create'
 delete 'logout' =>'sessions#destroy'
 delete 'job_parts/:id'=>'job_parts#destroy'
+get 'job_parts'=>'job_parts#index'
 
 
 

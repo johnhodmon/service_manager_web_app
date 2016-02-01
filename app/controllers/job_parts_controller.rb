@@ -50,8 +50,7 @@ end
   # DELETE /job_parts/1.json
 def destroy 
   @job_part.destroy 
-
-    redirect_to job_path(id:params[:job_id])
+  redirect_to job_path(id:params[:job_id])
 end
 
   private
