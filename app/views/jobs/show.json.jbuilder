@@ -5,6 +5,7 @@ json.( @job, :id, :reported_fault, :miles, :labour_time, :status)
   json.report @job.report 
   json.job_parts @job.job_parts
   json.part_lists @job.customer_product.product.part_lists
+  json.part_lists_with_part_numbers getPartListWithNums(@job.customer_product.product.part_lists)
 
   
 

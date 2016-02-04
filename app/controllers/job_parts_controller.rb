@@ -26,7 +26,7 @@ class JobPartsController < ApplicationController
   def create
     @job_part = JobPart.new(job_part_params)
     if @job_part.save
-      
+      reduceStock(@job_part)
     redirect_to job_path(id:params[:job_id])
 end
  
@@ -37,6 +37,7 @@ end
   def update
     respond_to do |format|
       if @job_part.update(job_part_params)
+        reduceStock(@job_part)
         format.html { redirect_to @job_part, notice: 'Job part was successfully updated.' }
         format.json { render :show, status: :ok, location: @job_part }
       else
@@ -50,6 +51,7 @@ end
   # DELETE /job_parts/1.json
 def destroy 
   @job_part.destroy 
+  increaseStock(@job_part)
   redirect_to job_path(id:params[:job_id])
 end
 
