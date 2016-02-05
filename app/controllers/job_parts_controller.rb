@@ -36,7 +36,7 @@ end
   # PATCH/PUT /job_parts/1.json
   def update
     respond_to do |format|
-      unchangedJobPart=JobPart.find(jobpart.id)
+      unchangedJobPart=JobPart.find(@job_part.id)
       quantity=unchangedJobPart.quantity
       if @job_part.update(job_part_params)
         updateStock(@job_part,quantity)

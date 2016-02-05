@@ -28,12 +28,15 @@ end
 
 	def updateStock(jobpart,quantity)
 		
-		if quantity<jobpart.quantity
-			increaseStock(jobpart)
+		p=Part.find(jobpart.part_id)
+					
+		updatedQuantity=p.quantity_in_stock-(jobpart.quantity-quantity)
+		p.update_attribute(:quantity_in_stock,updatedQuantity)
 
-		elsif quantity>jobpart.quantity
-			reduceStock(jobpart)
-		end
+
+
+
+
 	end
 		
 end
