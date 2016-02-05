@@ -36,8 +36,10 @@ end
   # PATCH/PUT /job_parts/1.json
   def update
     respond_to do |format|
+      unchangedJobPart=JobPart.find(jobpart.id)
+      quantity=unchangedJobPart.quantity
       if @job_part.update(job_part_params)
-        reduceStock(@job_part)
+        updateStock(@job_part,quantity)
         format.html { redirect_to @job_part, notice: 'Job part was successfully updated.' }
         format.json { render :show, status: :ok, location: @job_part }
       else

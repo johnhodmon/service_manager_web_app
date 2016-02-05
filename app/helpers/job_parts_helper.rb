@@ -3,17 +3,37 @@ module JobPartsHelper
 	def reduceStock (jobpart)
 		
 
-	Part.find(jobpart.part_id).quantity_in_stock=100
-			
+	p=Part.find(jobpart.part_id)
+	if (p)
+		quantity=jobpart.quantity
+		updatedQuantity=p.quantity_in_stock-quantity
+	p.update_attribute(:quantity_in_stock,updatedQuantity)
 		
 	end
+
+end
 
 
 	def increaseStock(jobpart)
+			p=Part.find(jobpart.part_id)
+		if (p)
+		quantity=jobpart.quantity
+		updatedQuantity=p.quantity_in_stock+quantity
+	p.update_attribute(:quantity_in_stock,updatedQuantity)
 		
-		
-	Part.find_by(id:jobpart.part_id).quantity_in_stock=Part.find_by(id:jobpart.part_id).quantity_in_stock+jobpart.quantity;
+	end
 
 		
 	end
+
+	def updateStock(jobpart,quantity)
+		
+		if quantity<jobpart.quantity
+			increaseStock(jobpart)
+
+		elsif quantity>jobpart.quantity
+			reduceStock(jobpart)
+		end
+	end
+		
 end
