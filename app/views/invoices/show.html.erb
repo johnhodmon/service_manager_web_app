@@ -43,10 +43,10 @@ Cost
 </thead>
 <tbody>
 <tr>
-<td>Travel</td><td>&euro;<%= Invoice.cost_per_mile %> per mile</td><td><%= job.miles %></td><td>&euro;<%= calculate_travel_cost %></td>
+<td>Travel</td><td>&euro;<%= Invoice.cost_per_hour_travel %> per hour of travel</td><td><%=((job.travel_end-job.travel_start)/1.hour).round %></td><td>&euro;<%= calculate_travel_cost %></td>
 </tr>
 <tr>
-<td>Labour</td><td>&euro;<%= Invoice.labour_per_hour %> per hour</td><td><%= job.labour_time %></td><td>&euro;<%= calculate_labour_cost %></td>
+<td>Labour</td><td>&euro;<%= Invoice.labour_per_hour %> per hour</td><td><%= ((job.labour_end-job.labour_start)/1.hour).round %></td><td>&euro;<%= calculate_labour_cost %></td>
 </tr>
 <% job.parts_used.each do |part| %>
 <% job_part_items=JobPart.where(job_id:job.id,part_id:part.id) %>

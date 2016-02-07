@@ -1,5 +1,5 @@
 class Invoice < ActiveRecord::Base
-	@@cost_per_mile = 1.25
+	@@cost_per_hour_travel = 10.00
 	@@labour_per_hour=25.00
 	@@vat_rate=0.135
 	validates :invoice_number, presence: true
@@ -7,7 +7,9 @@ class Invoice < ActiveRecord::Base
 
 
 
+def calculate_hours_traveling
 
+end
 
 def calculate_total_cost_of_parts
 	total=0
@@ -17,8 +19,8 @@ def calculate_total_cost_of_parts
 	total
 end
 
-def self.cost_per_mile
-	@@cost_per_mile
+def self.cost_per_hour_travel
+	@@cost_per_hour_travel
 end
 
 

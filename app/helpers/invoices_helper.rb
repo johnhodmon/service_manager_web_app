@@ -1,10 +1,12 @@
 module InvoicesHelper
+
+	
 def calculate_travel_cost 
-	@invoice.job.miles * Invoice.cost_per_mile
+	((@invoice.job.travel_end-@invoice.job.travel_start)/1.hour).round * Invoice.cost_per_hour_travel
 end
 
 def calculate_labour_cost 
-	@invoice.job.labour_time * Invoice.labour_per_hour
+	((@invoice.job.labour_end-@invoice.job.labour_start)/1.hour).round * Invoice.labour_per_hour
 end
 
 
