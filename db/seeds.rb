@@ -508,17 +508,49 @@ cp6=CustomerProduct.create(customer_id:c4.id,product_id:beko_washing_machine.id,
 cp7=CustomerProduct.create(customer_id:c5.id,product_id:electrolux_cooker.id, serial_number:'12345684')
 cp8=CustomerProduct.create(customer_id:c6.id,product_id:bosch_washing_machine.id, serial_number:'12345685')
 
+#timings
+travel_start_1=Time.new(2016,3,1,10,0,0,0)
+travel_end_1=Time.new(2016,3,1,11,0,0,0)
+labour_start_1=Time.new(2016,3,1,11,30,0,0)
+labour_end_1=Time.new(2016,3,1,12,30,0,0)
+
+travel_start_2=Time.new(2016,3,1,13,0,0,0)
+travel_end_2=Time.new(2016,3,1,13,30,0,0)
+labour_start_2=Time.new(2016,3,1,13,30,0,0)
+labour_end_2=Time.new(2016,3,1,15,0,0,0)
+
+travel_start_3=Time.new(2016,3,2,10,0,0,0)
+travel_end_3=Time.new(2016,3,2,11,0,0,0)
+labour_start_3=Time.new(2016,3,2,11,30,0,0)
+labour_end_3=Time.new(2016,3,2,12,30,0,0)
+
+travel_start_4=Time.new(2016,3,2,13,0,0,0)
+travel_end_4=Time.new(2016,3,2,13,30,0,0)
+labour_start_4=Time.new(2016,3,2,13,30,0,0)
+labour_end_4=Time.new(2016,3,2,15,0,0,0)
+
+travel_start_5=Time.new(2016,3,3,10,0,0,0)
+travel_end_5=Time.new(2016,3,3,11,0,0,0)
+labour_start_5=Time.new(2016,3,3,11,30,0,0)
+labour_end_5=Time.new(2016,3,3,12,30,0,0)
+
+travel_start_6=Time.new(2016,3,3,13,0,0,0)
+travel_end_6=Time.new(2016,3,3,13,30,0,0)
+labour_start_6=Time.new(2016,3,3,13,30,0,0)
+labour_end_6=Time.new(2016,3,3,15,0,0,0)
 #create jobs
 ################################
-job1=Job.create(reported_fault:"Oven not working",status:'complete',labour_time: 1.25, miles: 59);
+job1=Job.create(reported_fault:"Oven not working",status:'complete',labour_start:labour_start_1,labour_end:labour_end_1,travel_start:travel_start_1,travel_end:travel_end_1);
 job2=Job.create(reported_fault:"Grill not working",status:'unallocated');
-job3=Job.create(reported_fault:"Noise from machine",status:'complete',labour_time: 2.25,miles: 150 );
-job4=Job.create(reported_fault:"Machine will not turn on",status:'complete', labour_time:1.00,miles: 25);
+job3=Job.create(reported_fault:"Noise from machine",status:'complete',labour_start:labour_start_2,labour_end:labour_end_2,travel_start:travel_start_2,travel_end:travel_end_2);
+job4=Job.create(reported_fault:"Machine will not turn on",status:'complete', labour_start:labour_start_3,labour_end:labour_end_3,travel_start:travel_start_3,travel_end:travel_end_3);
 job5=Job.create(reported_fault:"Machine will not empty",status:'unallocated');
-job6=Job.create(reported_fault:"Ring not working",status:'complete', labour_time:1.00,miles: 25);
-job7=Job.create(reported_fault:"Nothing working on cooker",status:'complete',labour_time: 1.45, miles: 17);
-job8=Job.create(reported_fault:"Machine full of water",status:'complete',labour_time: 1.5, miles:15 );
+job6=Job.create(reported_fault:"Ring not working",status:'complete', labour_start:labour_start_4,labour_end:labour_end_4,travel_start:travel_start_4,travel_end:travel_end_4);
+job7=Job.create(reported_fault:"Nothing working on cooker",status:'complete',labour_start:labour_start_5,labour_end:labour_end_5,travel_start:travel_start_5,travel_end:travel_end_5);
+job8=Job.create(reported_fault:"Machine full of water",status:'complete',labour_start:labour_start_6,labour_end:labour_end_6,travel_start:travel_start_6,travel_end:travel_end_6 );
 job9=Job.create(reported_fault:"Machine leaking",status:'allocated');
+
+
 
 #invoice jobs
 job1.invoice=invoice1
@@ -539,6 +571,9 @@ job8.report=report6
   u4=Engineer.create(name: 'Roy Doyle', email:'rdoyle@servicemanager.ie',password:'secret',password_confirmation:'secret')
   u5=Engineer.create(name: 'Francis Ryan', email:'fryan@servicemanager.ie',password:'secret',password_confirmation:'secret')
   u6=Engineer.create(name: 'Peter Dempsey', email:'pdempsey@servicemanager.ie',password:'secret',password_confirmation:'secret')
+
+
+
 
 
 #allocate engineers to jobs
