@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160131105055) do
+ActiveRecord::Schema.define(version: 20160207111749) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -68,15 +68,17 @@ ActiveRecord::Schema.define(version: 20160131105055) do
 
   create_table "jobs", force: :cascade do |t|
     t.string   "reported_fault"
-    t.integer  "labour_time"
     t.integer  "engineer_id"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
     t.integer  "invoice_id"
     t.string   "status"
-    t.integer  "miles"
     t.integer  "customer_product_id"
     t.integer  "report_id"
+    t.time     "travel_start"
+    t.time     "travel_end"
+    t.time     "labour_end"
+    t.time     "labour_start"
   end
 
   create_table "manufacturers", force: :cascade do |t|
