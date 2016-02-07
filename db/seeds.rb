@@ -540,14 +540,14 @@ labour_start_6=Time.new(2016,3,3,13,30,0,0)
 labour_end_6=Time.new(2016,3,3,15,0,0,0)
 #create jobs
 ################################
-job1=Job.create(reported_fault:"Oven not working",status:'complete',labour_start:labour_start_1,labour_end:labour_end_1,travel_start:travel_start_1,travel_end:travel_end_1);
+job1=Job.create(reported_fault:"Oven not working",status:'allocated');
 job2=Job.create(reported_fault:"Grill not working",status:'unallocated');
-job3=Job.create(reported_fault:"Noise from machine",status:'complete',labour_start:labour_start_2,labour_end:labour_end_2,travel_start:travel_start_2,travel_end:travel_end_2);
-job4=Job.create(reported_fault:"Machine will not turn on",status:'complete', labour_start:labour_start_3,labour_end:labour_end_3,travel_start:travel_start_3,travel_end:travel_end_3);
+job3=Job.create(reported_fault:"Noise from machine",status:'allocated');
+job4=Job.create(reported_fault:"Machine will not turn on",status:'allocated');
 job5=Job.create(reported_fault:"Machine will not empty",status:'unallocated');
-job6=Job.create(reported_fault:"Ring not working",status:'complete', labour_start:labour_start_4,labour_end:labour_end_4,travel_start:travel_start_4,travel_end:travel_end_4);
-job7=Job.create(reported_fault:"Nothing working on cooker",status:'complete',labour_start:labour_start_5,labour_end:labour_end_5,travel_start:travel_start_5,travel_end:travel_end_5);
-job8=Job.create(reported_fault:"Machine full of water",status:'complete',labour_start:labour_start_6,labour_end:labour_end_6,travel_start:travel_start_6,travel_end:travel_end_6 );
+job6=Job.create(reported_fault:"Ring not working",status:'allocated');
+job7=Job.create(reported_fault:"Nothing working on cooker",status:'allocated');
+job8=Job.create(reported_fault:"Machine full of water",status:'allocated');
 job9=Job.create(reported_fault:"Machine leaking",status:'allocated');
 
 

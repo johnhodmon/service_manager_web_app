@@ -7,10 +7,6 @@ class Invoice < ActiveRecord::Base
 
 
 
-def calculate_hours_traveling
-
-end
-
 def calculate_total_cost_of_parts
 	total=0
 	self.job.parts_used.each do |part|

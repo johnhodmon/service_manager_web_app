@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160207111749) do
+ActiveRecord::Schema.define(version: 20160207171438) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -75,10 +75,10 @@ ActiveRecord::Schema.define(version: 20160207111749) do
     t.string   "status"
     t.integer  "customer_product_id"
     t.integer  "report_id"
-    t.time     "travel_start"
-    t.time     "travel_end"
-    t.time     "labour_end"
-    t.time     "labour_start"
+    t.datetime "travel_start"
+    t.datetime "travel_end"
+    t.datetime "labour_end"
+    t.datetime "labour_start"
   end
 
   create_table "manufacturers", force: :cascade do |t|

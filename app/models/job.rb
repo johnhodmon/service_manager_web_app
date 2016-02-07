@@ -7,5 +7,7 @@ class Job < ActiveRecord::Base
 	has_many :job_parts
 	has_many :parts_contained, :through => :job_parts, :source => :part
 	validates :reported_fault, presence: true
+
+	
 	
 end
