@@ -83,7 +83,7 @@
  #products  
 
   hotpoint_cooker=Product.create(manufacturer_id:hotpoint.id,
-        product_number:'ECK6461', 
+        product_number:'HCK1489', 
         description:'Cooker, free standing, 60 CM, Electric')     
 
     electrolux_cooker=Product.create(manufacturer_id:electrolux.id,
