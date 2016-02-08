@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
- #root 'jobs#show', :id => Job.all[0].id
+ root 'jobs#show', :id => Job.all[0].id
   
  
 
