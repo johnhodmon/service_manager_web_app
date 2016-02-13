@@ -5,6 +5,7 @@ class Job < ActiveRecord::Base
 	has_one :report, dependent: :destroy
 	has_one :invoice, dependent: :destroy
 	has_many :job_parts
+	has_many :photos
 	has_many :parts_contained, :through => :job_parts, :source => :part
 	validates :reported_fault, presence: true
 

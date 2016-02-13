@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+<% provide(:side_content, 'layouts/blank')%> 
+
+<p>
+  <strong>Job:</strong>
+  <%= @photo.job_id %>
+</p>
+
+<p>
+  <strong>Photo data:</strong>
+  <%= @photo.photo_data %>
+</p>
+
+<%= link_to 'Edit', edit_photo_path(@photo) %> |
+<%= link_to 'Back', photos_path %>
