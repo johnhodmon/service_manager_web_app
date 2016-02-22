@@ -15,10 +15,15 @@ class VideosController < ApplicationController
   # GET /videos/new
   def new
     @video = Video.new
+
   end
 
   # GET /videos/1/edit
   def edit
+  end
+
+   def store_dir
+    
   end
 
   # POST /videos
@@ -28,6 +33,11 @@ class VideosController < ApplicationController
 
     respond_to do |format|
       if @video.save
+        file= File.new("#{Rails.root}/storage/#{@video.id}.mp4", "w+")
+        File.open("#{Rails.root}/storage/#{@video.id}.mp4", "wb") do|file| file.write(Base64.decode64(@video.data)) end
+         
+ 
+     
         format.html { redirect_to @video, notice: 'Video was successfully created.' }
         format.json { render :show, status: :created, location: @video }
       else
