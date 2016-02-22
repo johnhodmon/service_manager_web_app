@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :videos
  #root 'jobs#show', :id => Job.all[0].id
   
  

@@ -16,7 +16,7 @@
     <% @photos.each do |photo| %>
       <tr>
         <td><%= photo.job_id %></td>
-        <td><%= photo.photo_data %></td>
+        <td><img src="data:image/jpeg;base64,<%= photo.photo_data %>" ></td>
         <td><%= link_to 'Show', photo %></td>
         <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
         <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
