@@ -1,15 +1,7 @@
 <p id="notice"><%= notice %></p>
 <% provide(:side_content, 'layouts/blank')%> 
 
-<p>
-  <strong>Data:</strong>
-  <%= @video.data %>
-</p>
-
-<p>
-  <strong>Job:</strong>
-  <%= @video.job_id %>
-</p>
-
+<%= @video.video_attachment_file_name %>
+<%= image_tag @video.video_attachment.url(:medium) %>
 <%= link_to 'Edit', edit_video_path(@video) %> |
 <%= link_to 'Back', videos_path %>
