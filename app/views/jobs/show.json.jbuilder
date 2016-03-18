@@ -7,6 +7,7 @@ json.( @job, :id, :reported_fault, :status, :travel_start, :travel_end,:labour_s
   json.part_lists @job.customer_product.product.part_lists
   json.part_lists_with_part_numbers getPartListWithNums(@job.customer_product.product.part_lists)
   json.job_parts_with_part_numbers  getJobPartWithNums(@job.job_parts)
+  json.video_filenames getVideoFileNames(@job)
   
 
 
