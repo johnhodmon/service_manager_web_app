@@ -22,16 +22,6 @@ def getJobPartWithNums(job_parts)
 
 end
 
-def getVideoFileNames (job)
-	
 
-		videoFileNames=job.videos.map{
-			|v| v.video_attachment_file_name
-		}
-
-		videoFileNames
-	
-
-end
 
 end
