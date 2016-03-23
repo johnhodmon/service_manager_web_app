@@ -28,3 +28,4 @@
     gem 'time_difference', '~> 0.4.2'
     gem "paperclip", "~> 4.3"
    gem 'paperclip-av-transcoder'
+   gem 'gcm'

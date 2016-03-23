@@ -35,6 +35,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
+
   end
 
   # POST /jobs
@@ -60,6 +61,9 @@ class JobsController < ApplicationController
     respond_to do |format|
 
       if @job.update(job_params)
+        gcm = GCM.new("AIzaSyDvGJ0YFIwP6zeqCJZW0WX_Z9A9CC6lxmQ")
+        registration_ids = ["eLaPYtYks7I:APA91bHAOyedVKesHvP8PTo17U-hK5sNaCwNCJxrfk8syIjLP84rSNDUvvFdk5IlF-7nyZGrTTqTEKMIxza7EY_-mfwCRuXleIlntH5DL_LA41dP7Dnn_-1dBGfNvAxnijDrdOI6cYrE"]
+        gcm.send(registration_ids, {data: {message: "Hello World"}})
         format.html { redirect_to @job}
         format.json { render :show, status: :ok, location: @job }
       else
