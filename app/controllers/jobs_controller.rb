@@ -62,10 +62,9 @@ class JobsController < ApplicationController
 
       if @job.update(job_params)
         engineer=User.find(job_params[:engineer_id])
-
         gcm = GCM.new("AIzaSyDvGJ0YFIwP6zeqCJZW0WX_Z9A9CC6lxmQ")
         registration_ids = [engineer.gms_token]
-        gcm.send(registration_ids, {data: {message: "Hello World"}})
+        gcm.send(registration_ids, {data: {message: "New Job Allocated",id:@job.id}})
         format.html { redirect_to @job}
         format.json { render :show, status: :ok, location: @job }
       else
