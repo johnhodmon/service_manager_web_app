@@ -61,14 +61,23 @@ class UsersController < ApplicationController
     end
   end
 
+  def updateGmsToken
+      respond_to do |format|
+        
+    current_user.update_attribute(:gms_token,params[:gms_token])
+     format.json { head :no_content }
+  end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
+
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email)
+      params.require(:user).permit(:name, :email,:gms_token)
     end
 end
