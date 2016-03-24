@@ -64,7 +64,7 @@ class UsersController < ApplicationController
   def updateGmsToken
       respond_to do |format|
         
-    current_user.update_attribute(:gms_token,params[:gms_token])
+    current_user.update_attribute(:gms_token,params[:token_string])
      format.json { head :no_content }
   end
   end
