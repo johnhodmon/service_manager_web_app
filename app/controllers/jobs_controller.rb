@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   def index
     if logged_in?
    if(current_user.type="Engineer")
-        @jobs = Job.where("engineer_id=#{current_user.id} AND created_at LIKE '%#{params[:created_at]}%'")
+        @jobs = Job.where("engineer_id=#{current_user.id} AND allocation_date LIKE '%#{params[:created_at]}%'")
       elsif (current_user.type="OfficeAdministrator")
         @jobs = Job.all
       end

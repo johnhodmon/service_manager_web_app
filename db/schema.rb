@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160323172737) do
+ActiveRecord::Schema.define(version: 20160407174606) do
 
   create_table "comments", force: :cascade do |t|
     t.string   "content"
@@ -80,6 +80,7 @@ ActiveRecord::Schema.define(version: 20160323172737) do
     t.datetime "labour_end"
     t.datetime "labour_start"
     t.binary   "cust_sig"
+    t.datetime "allocation_date"
   end
 
   create_table "manufacturers", force: :cascade do |t|
