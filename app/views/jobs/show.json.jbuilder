@@ -1,4 +1,4 @@
-json.( @job, :id, :reported_fault, :status, :travel_start, :travel_end,:labour_start, :labour_end)
+json.( @job, :id, :reported_fault, :created_at, :status, :travel_start, :travel_end,:labour_start, :labour_end)
  json.customer @job.customer_product.customer
   json.product  @job.customer_product.product 
   json.manufacturer @job.customer_product.product.manufacturer 

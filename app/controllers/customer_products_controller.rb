@@ -5,12 +5,15 @@ class CustomerProductsController < ApplicationController
 		@customer_product = CustomerProduct.new(customer_product_params)
 		if @customer_product.save
       
-		redirect_to customer_path(id:params[:customer_id])
-	
+		redirect_to customer_path(id:params[:customer_id])	
 
 	end
 
 
+	end
+
+	def show
+		@customer_product=CustomerProduct.find(params[:id])
 	end
 
 	 def index

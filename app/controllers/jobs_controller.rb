@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   def index
     if logged_in?
    if(current_user.type="Engineer")
-        @jobs = Job.where(engineer_id:current_user.id)
+        @jobs = Job.where("engineer_id=#{current_user.id} AND created_at LIKE '%#{params[:created_at]}%'")
       elsif (current_user.type="OfficeAdministrator")
         @jobs = Job.all
       end
@@ -27,6 +27,8 @@ class JobsController < ApplicationController
     redirect_to login_path
  end
   end
+
+
 
   # GET /jobs/new
   def new

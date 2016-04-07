@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :manufacturers
   resources :products
 
- 
+  
   delete 'customer_product'=>'customer_products#destroy'
    delete 'part_list'=>'part_lists#destroy'
    delete 'job_part'=>'job_parts#destroy'
