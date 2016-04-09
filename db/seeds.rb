@@ -540,15 +540,15 @@ labour_start_6=Time.new(2016,3,3,13,30,0,0)
 labour_end_6=Time.new(2016,3,3,15,0,0,0)
 #create jobs
 ################################
-job1=Job.create(reported_fault:"Oven not working",status:'allocated',allocation_date:'2016-05-20');
+job1=Job.create(reported_fault:"Oven not working",status:'allocated',allocation_date:'2016-04-08');
 job2=Job.create(reported_fault:"Grill not working",status:'unallocated');
-job3=Job.create(reported_fault:"Noise from machine",status:'allocated',allocation_date:'2016-05-20');
-job4=Job.create(reported_fault:"Machine will not turn on",status:'allocated',allocation_date:'2016-05-20');
+job3=Job.create(reported_fault:"Noise from machine",status:'allocated',allocation_date:'2016-04-08');
+job4=Job.create(reported_fault:"Machine will not turn on",status:'allocated',allocation_date:'2016-04-08');
 job5=Job.create(reported_fault:"Machine will not empty",status:'unallocated');
-job6=Job.create(reported_fault:"Ring not working",status:'allocated',allocation_date:'2016-05-20');
-job7=Job.create(reported_fault:"Nothing working on cooker",status:'allocated',allocation_date:'2016-05-20');
-job8=Job.create(reported_fault:"Machine full of water",status:'allocated',allocation_date:'2016-05-20');
-job9=Job.create(reported_fault:"Machine leaking",status:'allocated',allocation_date:'2016-05-20');
+job6=Job.create(reported_fault:"Ring not working",status:'allocated',allocation_date:'2016-04-08');
+job7=Job.create(reported_fault:"Nothing working on cooker",status:'allocated',allocation_date:'2016-04-08');
+job8=Job.create(reported_fault:"Machine full of water",status:'allocated',allocation_date:'2016-04-08');
+job9=Job.create(reported_fault:"Machine leaking",status:'allocated',allocation_date:'2016-04-08');
 
 
 
