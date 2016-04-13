@@ -4,7 +4,8 @@ class PhotosController < ApplicationController
   # GET /photos
   # GET /photos.json
   def index
-    @photos = Photo.all
+  
+      @photos = Photo.where(job_id:params[:job_id])
   end
 
   # GET /photos/1
