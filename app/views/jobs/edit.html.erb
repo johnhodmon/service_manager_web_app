@@ -19,24 +19,29 @@
 <div class="col-md-6">
 <h1>Edit Job</h1>
 <%= form_for(@job) do|f| %>
-<div class="form-group">
+<div class="form-group" >
 <%= f.label :reported_fault %>
+</div>
+<div class="form-group" >
 <%= f.text_field :reported_fault %>
 </div>
+<div class="form-group">
+<%= f.label :allocation_date,"Job To Be Complete On" %>
+</div>
+<div class="form-group">
+<%= f.text_field :allocation_date,  :value => @job.allocation_date.strftime("%d-%m-%Y"), "data-provide" => 'datepicker', "data-date-format"=>"dd/mm/yyyy" %>
+</div>
+
+<%= f.hidden_field(:customer_product_id,value:@job.customer_product.id) %>
+
 <div class="form-group">
 <%= f.label :engineer_id,"Engineer" %>
 <%= f.collection_select :engineer_id,Engineer.all,:id,:name, include_blank: true  %>
 </div>
-<%= f.hidden_field(:customer_product_id,value:@job.customer_product.id) %>
 <div class="form-group">
-<%= f.label(:status_unallocated, "Unallocated") %>
-<%= f.radio_button(:status, "unallocated") %>
-<%= f.label(:status_allocated, "Allocated") %>
-<%= f.radio_button(:status, "allocated") %>
-<%= f.label(:status_complete, "Complete") %>
-<%= f.radio_button(:status, "complete") %>
+<%= f.submit "Save",:class=>"btn btn-primary" %>
 </div>
-<%= f.submit "Edit Job",:class=>"btn btn-primary" %>
+
 <% end %>
 </div>
 <div class ="col-md-3">

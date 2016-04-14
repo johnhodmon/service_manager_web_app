@@ -548,15 +548,12 @@ job5=Job.create(reported_fault:"Machine will not empty",status:'allocated',alloc
 job6=Job.create(reported_fault:"Ring not working",status:'allocated',allocation_date:'2016-04-08');
 job7=Job.create(reported_fault:"Nothing working on cooker",status:'allocated',allocation_date:'2016-04-08');
 job8=Job.create(reported_fault:"Machine full of water",status:'allocated',allocation_date:'2016-04-08');
-job9=Job.create(reported_fault:"Machine leaking",status:'allocated',allocation_date:'2016-04-08');
+job9=Job.create(reported_fault:"Machine leaking",status:'complete',allocation_date:'2016-04-08');
 
 
 
 #invoice jobs
-job1.invoice=invoice1
-job3.invoice=invoice3
-job4.invoice=invoice4
-job6.invoice=invoice6
+
 
 job1.report=report1
 job3.report=report2

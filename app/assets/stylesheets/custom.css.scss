@@ -4,92 +4,153 @@
 
 
 
+
+
+
+
+
 h3
 {
-	font-size:130%;
+    font-size:20px;
 }
 
 h2
 {
-	font-size:140%;
+    font-size:22px;
 }
 
 
 h1
 {
-	font-size:150%;
+    font-size:24px;
 }
 
 p
 {
-	font-size:120%;
-	
+    font-size:18px;
+
 
 }
 
-	 
+span
+{
+    margin: 12px;
+}
+
+.invisible
+{
+    display:none;
+}
+
+.form-button
+{
+    margin:6px;
+}
+
+.top-nav-div
+{
+    margin-top:22px;
+}
 .top-nav
 {
-	background-color:#cccccc;
-	
-	font-size:20px;
-	
+    background-color:#000080;
+
+    font-size:18px;
+
+
+}
+
+.nav-tabs > li > a:hover
+{
+    cursor: default;
+    color:#668cff;
+}
+
+.nav-tabs > li > a,
+.nav-tabs > li > a:focus {
+
+    cursor: default;
+    color:white;
+    border-bottom-color:#000080;
+    font-size:18px;
+
+}
+
+.nav-tabs
+{
+    border-bottom-color:#000080;
+    margin-bottom: 0px;
 }
 
 
- .nav-tabs > li > a,
-        .nav-tabs > li > a:hover,
-        .nav-tabs > li > a:focus {
-        
-          cursor: default;
-          color:#0000cc;		  
-         
-          }
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
 
-
-   .nav-tabs > li.active > a,
-        .nav-tabs > li.active > a:hover,
-        .nav-tabs > li.active > a:focus {
-        
-          cursor: default;
-          color:#668cff;		  
-          background-color: #7a0099;
-          border: 1px solid #dddddd;
-          border-bottom-color: transparent;
-          } 
+    cursor: default;
+    color:white;
+    background-color:red;
+    border: 1px solid  red;
+    border-bottom-color:red;
+}
 .side-pane
 {
-	background-color:black;
-	height:2000px;
-	color:white;
+    background-color:black;
+    padding:10px;
+    min-height:100vh;
 
-	
+
+
+
 }
 
 .side-nav
 {
-	background-color:black;
+    background-color:black;
 
 
 }
 
 
-.side-nav>li>a>p,.side-nav>li>a>h3
+
+
+
+
+.nav-pills > li > a,
+.nav-pills > li > a:focus {
+
+    cursor: default;
+    background-color: black;
+    color:white;
+
+
+}
+
+.nav-pills > li > a:hover
 {
-
-	color:white;
-
+    cursor: default;
+    background-color: #555555;
 }
 
+.nav-pills > li.active > a,
+.nav-pills > li.active > a:hover,
+.nav-pills > li.active > a:focus {
 
+    cursor: default;
+    background-color: #000080;
+
+
+}
 
 
 .main-pane
 {
-	background-color:#eeeeee;
-	height:2000px;
-	
-	
+    background-color:#eeeeee;
+
+    padding-top: 10px;
+    min-height:100vh;
+
+
 
 }
 
@@ -97,34 +158,55 @@ p
 
 
 
-   .nav-pills > li.active > a,
-        .nav-pills > li.active > a:hover,
-        .nav-pills > li.active > a:focus {
-        
-          cursor: default;		  
-          background-color: black;
-          border: 1px solid  #7a0099;
-        
-          }
+
 
 table
 {
-	border: 1px solid  black;
+    border: 1px solid  black;
 }
 
 td,th
 {
-	border: 1px solid  black;
-	padding:2px;
+    border: 1px solid  black;
+    padding:2px;
 
 
 }
 
 ul
 {
-	list-style-type:none;
+    list-style-type:none;
 
 }
+
+.search-box-div
+{
+    margin-left:10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-right: 3px;
+}
+
+
+
+.search_by
+{
+    color:white;
+}
+
+.productImages
+{
+    height: 300px;
+    width:300px;
+}
+
+
+.logo
+{
+    color:white;
+}
+
+
 
 
 

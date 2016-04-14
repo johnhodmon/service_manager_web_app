@@ -15,7 +15,7 @@
 //= require bootstrap
 //= require turbolinks
 //= require_tree .
-
+//= require bootstrap-datepicker
 
 	      
     
@@ -23,7 +23,7 @@
   function myFunction() {
     document.getElementById("customers").className = "active";
 
-    alert("feck");
+  
 
 }
 

@@ -15,16 +15,21 @@
 </div>
 
 <div class ="col-md-6">
-<h1>Fault Description</h1>
+<h1>Job Details</h1>
 <p>
 Fault reported on <%= @job.created_at.strftime("%B %d, %Y") %><br>
 Fault description: <%= @job.reported_fault %><br>
+
 Job is <%= @job.status %><br>
-<% if @job.status=='unallocated' %><br>
-<%= link_to "Allocate this job", edit_job_path(@job) %>
+
+<%=  link_to edit_job_path(@job) do %>
+       Edit <span class="glyphicon glyphicon-edit"></span>
 <% end %>
-<%= link_to "Edit this Job", edit_job_path(@job) %><br>
-<%= link_to 'Delete this Job', @job, method: :delete, data: { confirm: 'Are you sure you want to delete this job?' } %>
+
+
+<%= link_to @job, method: :delete, data: { confirm: 'Are you sure you want to delete this job?' }  do %>
+       Delete <span class="glyphicon glyphicon-remove"></span>
+<% end %>
 </p>
 <h1> Job Report </h1>
 

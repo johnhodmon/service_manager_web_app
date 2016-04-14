@@ -1,37 +1,41 @@
+<% searchBoxContent="" %>
+ <div class="row search-box-div">
+  <div class="row">
+                    <input value="searchBoxContent" onchange="" type="text"  placeholder="Search"/>
+              </div>
+                <div class="row">
+                 <p class="search_by" >Search by..</p>
+                    <select  onchange= id="sort" >
+                        <option value="date">Date</option>
+                        <option value="customerName">Customer Name</option>
 
-<h1>Unallocated Jobs</h1>
+                    </select>
+                </div>
+                </div>
+  <div class="row">              
 <ul class="nav nav-pills nav-stacked side-nav">
 
-  <% unallocated=@jobs.select {|job| job.status=='unallocated'} %>
-  <% unallocated.each do |job| %>
+<%
+   
+
+            
+
+                list=@jobs.select do|job| job.customer_product.customer.name.downcase()==searchBoxContent.downcase()
+         
+                 end 
+
+       
+%>
+  
+  <% @jobs.each do |job| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.customer_product.product.manufacturer.name+' '+job.customer_product.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
-    
-        <% end %>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>>
+        <%= link_to raw('<h3>'+job.created_at.strftime("%d/%m/%Y")+'</h3><p>'+job.customer_product.product.manufacturer.name+' '+job.customer_product.product.description.split(',')[0]+'<br>'+job.customer_product.customer.name+'<br>'+job.customer_product.customer.town+'</p>'),job %></li>    
+<% end %>
+      
 
 </ul>
 
-<h1>Allocated Jobs</h1>
-<ul class="nav nav-pills nav-stacked side-nav">
+</div>
 
-  <% unallocated=@jobs.select {|job| job.status=='allocated'} %>
-  <% unallocated.each do |job| %>
-    
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.customer_product.product.manufacturer.name+' '+job.customer_product.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
-    
-        <% end %>
-
-</ul>
-
-<h1>Completed Jobs</h1>
-<ul class="nav nav-pills nav-stacked side-nav">
-
-  <% unallocated=@jobs.select {|job| job.status=='complete'} %>
-  <% unallocated.each do |job| %>
-    
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==job.id %>><%= link_to raw('<h3>'+job.customer_product.product.manufacturer.name+' '+job.customer_product.product.product_number+'</h3><p>'+job.reported_fault+'</p>'), job %></li>
-    
-        <% end %>
-
-</ul>
 
