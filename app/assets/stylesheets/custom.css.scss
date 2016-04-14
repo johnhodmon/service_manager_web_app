@@ -12,6 +12,12 @@
 h3
 {
     font-size:20px;
+
+}
+
+.highlighted_text
+{
+    color:purple;
 }
 
 h2
@@ -89,9 +95,9 @@ span
 
     cursor: default;
     color:white;
-    background-color:red;
-    border: 1px solid  red;
-    border-bottom-color:red;
+    background-color:purple;
+    border: 1px solid  purple;
+    border-bottom-color:purple;
 }
 .side-pane
 {
@@ -137,7 +143,7 @@ span
 .nav-pills > li.active > a:focus {
 
     cursor: default;
-    background-color: #000080;
+    background-color: purple;
 
 
 }
