@@ -1,5 +1,7 @@
 class CustomersController < ApplicationController
   before_action :set_customer, only: [:show, :edit, :update, :destroy]
+  include CustomersHelper
+
 
   # GET /customers
   # GET /customers.json
@@ -10,11 +12,19 @@ class CustomersController < ApplicationController
   # GET /customers/1
   # GET /customers/1.json
   def show
-    if logged_in?
-      @customers = Customer.all
+    if logged_in?      
+     @customers = Customer.all
+
+        if (params[:search] && params[:search_type]=="name")     
+          @customers=customerNameSearch(params[:search],@customers)
+        elsif (params[:search] && params[:search_type]=="email")
+          @jobs=customerEmailSearch(params[:search],@customers)
+        else
+         @customers = Customer.all 
+    end
 
     else
-      redirect_to login_path
+    redirect_to login_path
     end
      
   end

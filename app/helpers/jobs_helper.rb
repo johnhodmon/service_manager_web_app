@@ -22,6 +22,26 @@ def getJobPartWithNums(job_parts)
 
 end
 
+  def jobsCustomerNameSearch(name,jobs)
+         matches = []
+         @jobs.each do |job|
+           if job.customer_product.customer.name.downcase.match(name.downcase)
+              matches << job
+           end
+         end
+         matches
+       end
+
+         def jobsDateSearch(date,jobs)
+         matches = []
+         @jobs.each do |job|
+           if job.created_at.strftime("%d/%m/%Y").match(date.downcase)
+              matches << job
+           end
+         end
+         matches
+       end
+
 
 
 end

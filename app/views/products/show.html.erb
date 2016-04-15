@@ -1,8 +1,8 @@
 <% provide(:side_content, 'layouts/products')%> 
 <div class ="row">
-<div class="col-md-6">
+<div class="col-md-3">
 
-<h1>Manufacturer Details<h1>
+<h1 class="highlighted_text">Manufacturer Details</h1>
 <p>
 <%= @product.manufacturer.name %><br>
 <%= @product.manufacturer.street %><br>
@@ -12,23 +12,10 @@
 <%= @product.manufacturer.phone %><br>
 <%= @product.manufacturer.email %><br>
 </p>
-<h1>Exploded View</h1>
- <%= image_tag("beko_machine.png", alt: "Exploded View") %>
-
 </div>
 <div class="col-md-6">
-<h1> Product Details </h1>
-<p>
-<%= @product.manufacturer.name %> <%= @product.product_number %> <br>
-<%= @product.description%><br>
-
-<%= link_to "Edit this Product", edit_product_path(@product) %><br>
-<%= link_to 'Delete this Product', @product, method: :delete, data: { confirm: 'Are you sure you want to delete this product?' } %>
-</p>
-
-
-<h1> Parts List</h1>
-<table>
+<h1 class="highlighted_text"> Parts List</h1>
+<table class="table table-striped">
 <thead>
 <tr>
 <th>Part Number</th>
@@ -44,24 +31,30 @@
 <% quantity=part_list_item.quantity %>
 
 <tr><td><%= link_to part.part_number, part %></td><td><%= part.description %></td>
-<td><%= quantity.to_s %> <%= link_to 'Delete',part_list_path(id:part_list_item.id,product_id:@product.id), method: :delete, data: { confirm: 'Are you sure you want to delete this part from the list?' } %></td></tr>
+<td><%= quantity.to_s %></td><td> <%= link_to part_list_path(id:part_list_item.id,product_id:@product.id), method: :delete, data: { confirm: 'Are you sure you want to delete this part from the list?' } do %><span class="danger"> Delete <span class="glyphicon glyphicon-remove"></span></span><% end %></td></tr>
+
+
 
 
 <% end %>
 </tbody>
 </table>
 
-<h1> Add Part to Parts List</h1>
+<h1 class="highlighted_text"> Add Part to Parts List</h1>
  <%= form_for(:part_list, url:product_path(product_id:@product.id)) do |f| %>
-   		
+      
         <%= f.hidden_field :product_id, :value => @product.id %>
         <div class="form-group">
-         <%= f.label :part_id,"Part" %>   
+         <%= f.label :part_id,"Part" %> 
+         </div> 
+            <div class="form-group"> 
        <%= f.collection_select :part_id,Part.all,:id,:description, include_blank:"Select Part"  %>
        </div>
        <div class="form-group">
            <%= f.label :quantity%>  
+          
          <%= f.select :quantity, (0..10) %>
+         </div>
          <div class="form-group">
  <%= f.submit "Add Part",:class=>'btn btn-primary'%>
  <% end %>
@@ -69,5 +62,23 @@
 
 
 </div>
+<div class="col-md-3">
+<h1 class="highlighted_text"> Product Details </h1>
+<p>
+<%= @product.manufacturer.name %> <%= @product.product_number %> <br>
+<%= @product.description%><br>
+
+
+</p>
+<% if @product.description.split(',')[0].downcase.match("washing machine") %>
+<%= image_tag("washing-machine.jpg") %>
+<% else %> 
+ 
+<%= image_tag("cooker.jpg") %>
+ <% end %>
+
+</div>
+</div>
+
 </div>
 

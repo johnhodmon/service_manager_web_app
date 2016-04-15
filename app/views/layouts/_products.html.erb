@@ -1,12 +1,20 @@
 
+<div class="row search-box-div">
+<%= form_tag(product_path(id:params[:id]), :method => "get", id: "product-search-form")  %>
+  <%= text_field_tag :search,params[:search], placeholder: "Search" %>
+   <p class="search_by" >Search by..</p>
+  <%= select_tag :search_type, options_for_select([["description","description"],["manufacturer","manufacturer"]])%>
+  <%= submit_tag "Search" %>
+   </div>
+                <div class="row">
 
-<h3><%= link_to "Create New Product" , new_product_path %> </h3>
 <ul class="nav nav-pills nav-stacked side-nav">
 
   <% @products.each do |product| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i==product.id %>><%= link_to raw('<h3>'+product.manufacturer.name+'</h3><p>'+product.product_number+'</p>'), product %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i==product.id %>><%= link_to raw('<h3>'+product.manufacturer.name+' '+product.description.split(',')[0]+'</h3><p>'+product.product_number+'</p>'), product %></li>
     
         <% end %>
 
 </ul>
+</div>

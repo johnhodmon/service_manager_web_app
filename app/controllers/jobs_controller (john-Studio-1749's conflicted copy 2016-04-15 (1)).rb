@@ -20,21 +20,25 @@ class JobsController < ApplicationController
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-     if logged_in?      
+     if logged_in?
+      
      @jobs = Job.all
+      if params[:search]&&params[:search_type]=="name"
+      #@jobs = Job.search(params[:search]).order("created_at DESC")
+      @jobs=jobsCustomerNameSearch(params[:search],@jobs)
+       elsif params[:search]&&params[:search_type]=="date"
+      #@jobs = Job.search(params[:search]).order("created_at DESC")
+      @jobs=jobsDateSearch(params[:search],@jobs)
 
-        if (params[:search] && params[:search_type]=="name")     
-          @jobs=jobsCustomerNameSearch(params[:search],@jobs)
-        elsif (params[:search] && params[:search_type]=="date")
-          @jobs=jobsDateSearch(params[:search],@jobs)
-        else
-          @jobs = Job.all
-    end
 
     else
+      @jobs = Job.all.order('created_at DESC')
+    end
+      else
     redirect_to login_path
-    end
-    end
+ end
+  end
+
 
 
   # GET /jobs/new

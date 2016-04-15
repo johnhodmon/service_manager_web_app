@@ -1,31 +1,15 @@
-<% searchBoxContent="" %>
- <div class="row search-box-div">
-  <div class="row">
-                    <input value="searchBoxContent" onchange="" type="text"  placeholder="Search"/>
-              </div>
-                <div class="row">
-                 <p class="search_by" >Search by..</p>
-                    <select  onchange= id="sort" >
-                        <option value="date">Date</option>
-                        <option value="customerName">Customer Name</option>
 
-                    </select>
-                </div>
-                </div>
+ <div class="row search-box-div">
+<%= form_tag(job_path(id:params[:id]), :method => "get", id: "job-search-form")  %>
+  <%= text_field_tag :search,params[:search], placeholder: "Search" %>
+   <p class="search_by" >Search by..</p>
+  <%= select_tag :search_type, options_for_select([["customer name","name"],["date","date"]])%>
+  <%= submit_tag "Search" %>
+   </div>
   <div class="row">              
 <ul class="nav nav-pills nav-stacked side-nav">
 
-<%
-   
 
-            
-
-                list=@jobs.select do|job| job.customer_product.customer.name.downcase()==searchBoxContent.downcase()
-         
-                 end 
-
-       
-%>
   
   <% @jobs.each do |job| %>
     

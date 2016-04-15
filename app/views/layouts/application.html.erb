@@ -19,12 +19,14 @@
         <div class="container-fluid">
        <%= render 'layouts/header' %>
      
-       <div class="row row top-nav">
+       <div class="row  top-nav">
 
-                    <div class="col-md-2">
+                    <div class="col-md-3">
+                     <span class="logo_image"><%= image_tag("tools-icon-white.png") %></span>
                    <h1 class="logo">Service Manager</h1>
+
                         </div>
-   <div class="col-md-10 top-nav-div"> 
+   <div class="col-md-9 top-nav-div"> 
            
 <ul class="nav  nav-tabs">
    
@@ -32,11 +34,11 @@
    <li  role="presentation" class=<%= 'active' if params[:controller] == 'jobs' %>><%= link_to "Jobs", job_path(id:Job.all[0].id) %></li>
   <li role="presentation" class=<%= 'active' if params[:controller] == 'customers' %>><%= link_to "Customers",customer_path(id:Customer.all[0].id)%></li>
     <li role="presentation" class=<%= 'active' if params[:controller] == 'products' %>><%= link_to "Products",product_path(id:Product.all[0].id)%></li>
-   <li role="presentation" class=<%= 'active' if params[:controller] == 'invoices' %>><%= link_to "Invoices",invoice_path(id:Invoice.all[0].id)%></li>
+  
    <li role="presentation" class=<%= 'active' if params[:controller] == 'parts' %>><%= link_to "Stock Control",part_path(id:Part.all[0].id)%></li>
 
    <% if (logged_in?) %>
- <li role="presentation" class="dropdown">
+ <li class="navbar navbar-right" role="presentation" class="dropdown">
     <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
       <%= @current_user.name %> <span class="caret"></span>
     </a>

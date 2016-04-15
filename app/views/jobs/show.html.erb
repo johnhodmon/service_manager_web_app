@@ -9,12 +9,12 @@
 <%=customer.street %><br>
 <%=customer.town %><br>
 <%=customer.county %><br>
-
 </p>
 
 </div>
 
 <div class ="col-md-6">
+
 <h1 class="highlighted_text">Job Details</h1>
 <p>
 Fault reported on <%= @job.created_at.strftime("%B %d, %Y") %><br>
@@ -23,12 +23,12 @@ Fault description: <%= @job.reported_fault %><br>
 Job is <%= @job.status %><br>
 
 <%=  link_to edit_job_path(@job) do %>
-       Edit <span class="glyphicon glyphicon-edit"></span>
+      <span class="highlighted_text"> Edit <span class="glyphicon glyphicon-edit "></span></span>
 <% end %>
 
 
 <%= link_to @job, method: :delete, data: { confirm: 'Are you sure you want to delete this job?' }  do %>
-       Delete <span class="glyphicon glyphicon-remove"></span>
+        <span class="danger"> Delete <span class="glyphicon glyphicon-remove"></span></span>
 <% end %>
 </p>
 <h1 class="highlighted_text"> Job Report </h1>
@@ -52,11 +52,13 @@ This job has not been completed by an engineer.
 <% invoice =@job.invoice %>
 This job has been invoiced, invoice number: <%= link_to invoice.invoice_number, invoice %>
 <% else %>
+<p>
 This job has not been invoiced 
 <% if @job.status=='complete' %>
 though it is complete. <%= link_to "invoice this job", new_invoice_path(job_id:@job.id) %> 
 <% else %>
 as it is not yet complete
+</p>
 <% end %>
 <% end %>
 <% if @job.status=='complete' %>

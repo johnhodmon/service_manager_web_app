@@ -1,13 +1,20 @@
-<h3><%= link_to "Add a new Customer", new_customer_path  %></h3>
+<div class="row search-box-div">
+<%= form_tag(customer_path(id:params[:id]), :method => "get", id: "customer-search-form")  %>
+  <%= text_field_tag :search,params[:search], placeholder: "Search" %>
+   <p class="search_by" >Search by..</p>
+  <%= select_tag :search_type, options_for_select([["customer name","name"],["email","email"]])%>
+  <%= submit_tag "Search" %>
+   </div>
+                <div class="row"> 
 <ul class="nav nav-pills nav-stacked side-nav">
 
   <% @customers.each do |customer| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==customer.id %>><%= link_to raw('<h3>'+customer.name+'</h3><p>'+customer.town+'</p>'), customer %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==customer.id %>><%= link_to raw('<h3>'+customer.name+'</h3><p>'+customer.street+'<br/>'+customer.town+'</p>'), customer %></li>
     
         <% end %>
 
 </ul>
-
+</div>
 
 

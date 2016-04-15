@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
+  include ProductsHelper
 
   # GET /products
   # GET /products.json
@@ -10,11 +11,20 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.json
   def show
-      if logged_in?
-    @products = Product.all
-      else
+  if logged_in?      
+     @products = Product.all
+
+        if (params[:search] && params[:search_type]=="manufacturer")     
+          @products=productManufacturerSearch(params[:search],@products)
+        elsif (params[:search] && params[:search_type]=="description")
+          @products=productDescriptionSearch(params[:search],@products)
+        else
+        @products = Product.all
+    end
+
+    else
     redirect_to login_path
-  end
+    end
   end
 
   # GET /products/new

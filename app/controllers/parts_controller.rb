@@ -1,5 +1,6 @@
 class PartsController < ApplicationController
   before_action :set_part, only: [:show, :edit, :update, :destroy]
+  include PartsHelper
 
   # GET /parts
   # GET /parts.json
@@ -10,11 +11,20 @@ class PartsController < ApplicationController
   # GET /parts/1
   # GET /parts/1.json
   def show
-    if logged_in?
+    if logged_in?      
      @parts = Part.all
-   else
+
+        if (params[:search] && params[:search_type]=="part_number")     
+          @parts=partNumberSearch(params[:search],@parts)
+        elsif (params[:search] && params[:search_type]=="description")
+          @parts=partDescriptionSearch(params[:search],@parts)
+        else
+        @products = Product.all
+    end
+
+    else
     redirect_to login_path
-  end
+    end
   end
 
   # GET /parts/new

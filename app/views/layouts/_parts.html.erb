@@ -1,12 +1,19 @@
-<ul class="nav nav-pills nav-stacked side-nav">
-<h3><%= link_to "Create New Part", new_part_path %></h3>
+<div class="row search-box-div">
+<%= form_tag(part_path(id:params[:id]), :method => "get", id: "part-search-form")  %>
+  <%= text_field_tag :search,params[:search], placeholder: "Search" %>
+   <p class="search_by" >Search by..</p>
+  <%= select_tag :search_type, options_for_select([["part number","part_number"],["description","description"]])%>
+  <%= submit_tag "Search" %>
+   </div>
+                <div class="row">
+                <ul class="nav nav-pills nav-stacked side-nav">
   <% @parts.each do |part| %>
     
-        <li role="presentation" class=<%= 'active' if params[:id].to_i ==part.id %>><%= link_to raw('<h3>'+part.part_number+'</h3><p>'+part.description+'</p>'), part %></li>
+        <li role="presentation" class=<%= 'active' if params[:id].to_i ==part.id %>><%= link_to raw('<h3>'+part.description+'</h3><p> Part Number: '+part.part_number+'</p>'), part %></li>
     
         <% end %>
 
 </ul>
 
-
+</div>
 
