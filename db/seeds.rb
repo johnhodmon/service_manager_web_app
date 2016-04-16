@@ -498,6 +498,7 @@ report3=Report.create(engineer_report:'Replaced controller rewired door switch')
 report4=Report.create(engineer_report:'replaced ring and rheostat.')
 report5=Report.create(engineer_report:'rewiring required')
 report6=Report.create(engineer_report:'replaced drain pump')
+report7=Report.create(engineer_report:'loose wire on rheostat')
 #create customer products
 cp1=CustomerProduct.create(customer_id:c1.id,product_id:hotpoint_cooker.id, serial_number:'12345678')
 cp2=CustomerProduct.create(customer_id:c1.id,product_id:indesit_washing_machine.id, serial_number:'12345679')
@@ -541,7 +542,7 @@ labour_end_6=Time.new(2016,3,3,15,0,0,0)
 #create jobs
 ################################
 job1=Job.create(reported_fault:"Oven not working",status:'allocated',allocation_date:'2016-04-16');
-job2=Job.create(reported_fault:"Grill not working",status:'unallocated');
+job2=Job.create(reported_fault:"Grill not working",status:'complete',allocation_date:'2016-02-16');
 job3=Job.create(reported_fault:"Noise from machine",status:'allocated',allocation_date:'2016-04-16');
 job4=Job.create(reported_fault:"Machine will not turn on",status:'allocated',allocation_date:'2016-04-16');
 job5=Job.create(reported_fault:"Machine will not empty",status:'allocated',allocation_date:'2016-04-16');
@@ -556,6 +557,8 @@ job9=Job.create(reported_fault:"Machine leaking",status:'complete',allocation_da
 
 
 job1.report=report1
+job2.report=report7
+
 job3.report=report2
 job4.report=report3
 job6.report=report4
@@ -576,12 +579,12 @@ job8.report=report6
 #allocate engineers to jobs
 job1.engineer=u2
 job2.engineer=u2
-job3.engineer=u2
-job4.engineer=u2
-job5.engineer=u2
-job6.engineer=u2
+job3.engineer=u6
+job4.engineer=u5
+job5.engineer=u5
+job6.engineer=u6
 job7.engineer=u2
-job8.engineer=u2
+job8.engineer=u4
 
 #assign the products to jobs (back to front way of doing it but ok for seeding)
 cp1.jobs<<job1

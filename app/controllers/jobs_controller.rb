@@ -7,7 +7,7 @@ class JobsController < ApplicationController
   def index
     if logged_in?
    if(current_user.type="Engineer")
-        @jobs = Job.where("engineer_id=#{current_user.id} AND allocation_date LIKE '%#{params[:created_at]}%'")
+        @jobs = Job.where("engineer_id=#{current_user.id} AND allocation_date LIKE '%#{params[:allocation_date]}%'")
       elsif (current_user.type="OfficeAdministrator")
         @jobs = Job.all
     
@@ -54,7 +54,10 @@ class JobsController < ApplicationController
 
     respond_to do |format|
       if @job.save
-
+        engineer=User.find(job_params[:engineer_id])
+        gcm = GCM.new("AIzaSyDvGJ0YFIwP6zeqCJZW0WX_Z9A9CC6lxmQ")
+        registration_ids = [engineer.gms_token]
+        gcm.send(registration_ids, {data: {message: "New Job Allocated",id:@job.id}})  
         format.html { redirect_to customer_path(id:1)}
         format.json { render :show, status: :created, location: @job }
       else
@@ -73,7 +76,7 @@ class JobsController < ApplicationController
         engineer=User.find(job_params[:engineer_id])
         gcm = GCM.new("AIzaSyDvGJ0YFIwP6zeqCJZW0WX_Z9A9CC6lxmQ")
         registration_ids = [engineer.gms_token]
-        gcm.send(registration_ids, {data: {message: "New Job Allocated",id:@job.id}})
+        gcm.send(registration_ids, {data: {message: "New Job Allocated For",id:@job.id}})
         format.html { redirect_to @job}
         format.json { render :show, status: :ok, location: @job }
       else
