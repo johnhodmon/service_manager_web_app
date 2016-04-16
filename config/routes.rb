@@ -23,9 +23,12 @@ Rails.application.routes.draw do
    delete 'part_list'=>'part_lists#destroy'
    delete 'job_part'=>'job_parts#destroy'
 
-  post 'customers/:id'=>'customer_products#create'
+  post 'customers/*all'=>'customer_products#create'
+  get 'customers/:id'=>'customers#show'
+  
   post 'jobs/:id'=>'job_parts#create'
   post 'products/:id'=>'part_lists#create'
+  get 'products/:id'=>'products#show'
 
 get 'login' => 'sessions#new'
 post 'login'=> 'sessions#create'

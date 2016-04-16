@@ -56,7 +56,7 @@
          <%= f.select :quantity, (0..10) %>
          </div>
          <div class="form-group">
- <%= f.submit "Add Part",:class=>'btn btn-primary'%>
+ <%= f.submit "Add Part",:class=>'btn btn-success'%>
  <% end %>
 </div>
 
@@ -70,12 +70,7 @@
 
 
 </p>
-<% if @product.description.split(',')[0].downcase.match("washing machine") %>
-<%= image_tag("washing-machine.jpg") %>
-<% else %> 
- 
-<%= image_tag("cooker.jpg") %>
- <% end %>
+
 
 </div>
 </div>

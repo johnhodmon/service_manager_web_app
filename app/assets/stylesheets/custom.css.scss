@@ -1,9 +1,19 @@
 @import 'bootstrap-sprockets';
 @import "bootstrap";
 
-p,p>a,input,select
+p,p>a,input,select,label,p>ul>li
 {
     font-size:120% !important;
+}
+
+label
+{
+    color:green !important;
+}
+
+p>a,td>a
+{
+    color:purple!important;
 }
 
 h3
@@ -22,12 +32,21 @@ h1
     font-size:150%;
 }
 
-
+.customer_signature>img
+{
+    width:100px;
+    height:25px;
+}
 
 
 .highlighted_text, .highlighted_text>a,.highlighted_text>td
 {
-    color:purple;
+    color:#000080;
+}
+
+.ok, .ok>a
+{
+    color:#14cd8d;
 }
 
 
@@ -102,7 +121,8 @@ span
 {
     background-color:black;
     padding:10px;
-    min-height:100vh;
+    height:10000px;
+   
 
 
 
@@ -142,7 +162,7 @@ span
 .nav-pills > li.active > a:focus {
 
     cursor: default;
-    background-color: purple;
+    background-color: #000080;
 
 
 }
@@ -152,7 +172,7 @@ span
 {
     background-color:#eeeeee;
     padding-top: 10px;
-    min-height:100vh;
+     height:10000px;
 
 }
 
@@ -215,7 +235,7 @@ ul
 
 .danger
 {
-    color:red;
+    color:purple;
 }
 
 

@@ -5,7 +5,7 @@ class CustomerProductsController < ApplicationController
 		@customer_product = CustomerProduct.new(customer_product_params)
 		if @customer_product.save
       
-		redirect_to customer_path(id:params[:customer_id])	
+		redirect_to customer_path(id:customer_product_params[:customer_id])	
 
 	end
 

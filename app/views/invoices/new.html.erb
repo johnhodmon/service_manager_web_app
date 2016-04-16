@@ -5,7 +5,7 @@
 
 <div class= "row">
 <div class ="col-md-4">
-<h1>Customer Details</h1>
+<h1 class="highlighted_text">Customer Details</h1>
 <p>
 <%=link_to customer.name,customer %><br>
 <%=customer.street %><br>
@@ -15,12 +15,12 @@
 </p>
 </div>
 <div class ="col-md-4">
-<h1>Job Details</h1>
+<h1 class="highlighted_text">Job Details</h1>
 <p>
 Fault reported on <%= job.created_at.strftime("%B %d, %Y") %><br>
 Fault description: <%= job.reported_fault %><br>
 Work completed by <%= job.engineer.name %> <br>
-Enginner Comments: <%= job.report %>
+Enginner Comments: <%= job.report.engineer_report %>
 </p>
 <h1>Create Invoice</h1>
 <%= form_for(@invoice) do|f| %>
@@ -30,12 +30,12 @@ Enginner Comments: <%= job.report %>
 </div>
 <%= f.hidden_field(:job_id,value:params[:job_id]) %>
 
-<%= f.submit "Create Invoice" ,:class=>"btn btn-primary"%>
+<%= f.submit "Create Invoice" ,:class=>"btn btn-success"%>
 <% end %>
 </div>
 
 <div class ="col-md-4">
-<h1>Product Details</h1>
+<h1 class="highlighted_text">Product Details</h1>
 <p>
 <%= product.manufacturer.name %>
 <%= product.product_number %>

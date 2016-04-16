@@ -17,13 +17,13 @@
 
 <h1 class="highlighted_text">Job Details</h1>
 <p>
-Fault reported on <%= @job.created_at.strftime("%B %d, %Y") %><br>
-Fault description: <%= @job.reported_fault %><br>
+<span class="ok">Fault Reported: </span> <%= @job.created_at.strftime("%B %d, %Y") %><br>
+<span class="ok">Fault Description: </span> <%= @job.reported_fault %><br>
 
-Job is <%= @job.status %><br>
+<span class="ok">Job Status:</span> <%= @job.status %><br>
 
 <%=  link_to edit_job_path(@job) do %>
-      <span class="highlighted_text"> Edit <span class="glyphicon glyphicon-edit "></span></span>
+      <span class="ok"> Edit <span class="glyphicon glyphicon-edit "></span></span>
 <% end %>
 
 
@@ -35,8 +35,8 @@ Job is <%= @job.status %><br>
 
 <% if @job.status=='complete' %><br>
 <P>
-Work completed by <%= @job.engineer.name %> <br>
-Enginner Comments: <%= @job.report.engineer_report %>
+<span class="ok">Work Completed by: </span> <%= @job.engineer.name %> <br>
+<span class="ok">Enginner Comments: </span> <%= @job.report.engineer_report %>
 </P>
 
 
@@ -50,7 +50,7 @@ This job has not been completed by an engineer.
 <h1 class="highlighted_text"> Invoice for this Job</h1>
 <%if @job.invoice %>
 <% invoice =@job.invoice %>
-This job has been invoiced, invoice number: <%= link_to invoice.invoice_number, invoice %>
+<p>This job has been invoiced, <%= link_to "Invoice No."+invoice.invoice_number, invoice %><p>
 <% else %>
 <p>
 This job has not been invoiced 
@@ -63,7 +63,7 @@ as it is not yet complete
 <% end %>
 <% if @job.status=='complete' %>
 <h1>Parts Used on this Job</h1>
-<table>
+<table class="table tabl-striped">
 <thead>
 <th>Part Number</th><th>Description</th><th>Quantity Used</th>
 </thead>
@@ -72,21 +72,13 @@ as it is not yet complete
 <% job_part_items=JobPart.where(job_id:@job.id,part_id:part.id) %>
 <% job_part_item=job_part_items[0] %>
 <% quantity=job_part_item.quantity %>
-<tr><td><%= link_to part.part_number,part %></td><td><%= part.description %></td><td><%= quantity %> <%= link_to 'Delete',job_part_path(id:job_part_item.id,job_id:@job.id), method: :delete, data: { confirm: 'Are you sure you want to delete this part from the list?' } %></td></tr>
+<tr><td><%= link_to part.part_number,part %></td><td><%= part.description %></td><td><%= quantity %></td><td> <%= link_to job_part_path(id:job_part_item.id,job_id:@job.id), method: :delete, data: { confirm: 'Are you sure you want to delete this part from the list?' } do %>
+        <span class="danger"> Delete <span class="glyphicon glyphicon-remove"></span></span><% end %></td></tr>
 <% end %> 
 
 </tbody>
 </table>
-<h1>Add Part used on this Job</h1>
- <%= form_for(:job_part, url:job_path(job_id:@job.id)) do |f| %>
-   
-        <%= f.hidden_field :job_id, :value => @job.id %>
-         <%= f.label :part_id,"Part" %>   
-       <%= f.select(:part_id, @job.customer_product.product.parts_contained.collect{|p| [ p.description, p.id ] }, {:include_blank => 'Select a Part'}) %>
-           <%= f.label :quantity%>  
-         <%= f.select :quantity, (0..10) %>
- <%= f.submit "Add Part" %>
- <% end %>
+
 <% end %> 
 
 
@@ -97,10 +89,10 @@ as it is not yet complete
 </div>
 <div class ="col-md-3">
 <h1 class="highlighted_text"> Product Details</h1>
-<p>
-<%= product.manufacturer.name %>
-<%= product.product_number %>
-<%= product.description %>
+<p class="paragraph_link">
+<%= link_to product.manufacturer.name+" "+product.product_number,product %><br>
+
+<%= product.description %><br>
 Serial Number: <%= @job.customer_product.serial_number %>
 </p>
 
