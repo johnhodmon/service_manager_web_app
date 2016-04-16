@@ -1,10 +1,5 @@
 
-<div class="row search-box-div">
-<%= form_tag(product_path(id:params[:id]), :method => "get", id: "product-search-form")  %>
-  <%= text_field_tag :search,params[:search], placeholder: "Search" %>
-   <p class="search_by" >Search by..</p>
-  <%= select_tag :search_type, options_for_select([["description","description"],["manufacturer","manufacturer"]])%>
-  <%= submit_tag "Search" %>
+
    </div>
                 <div class="row">
 
