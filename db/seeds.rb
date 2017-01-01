@@ -340,33 +340,33 @@ electrolux_oven_element=Part.create(part_number: '11155005',
     quantity_in_stock: '260',
     cost: '14.75')
 
-belling_oven_element=Part.create(part_number: '11155002',
-    description: 'Oven Element Cooker Belling',
-    quantity_in_stock: '90',
-    cost: '10.60')
-
-beko_oven_element=Part.create(part_number: '11155003',
-    description: 'Oven Element Cooker Beko',
-    quantity_in_stock: '110',
-    cost: '12.85')
-
- #oven element
-hotpoint_oven_element=Part.create(part_number: '11155004',
-    description: 'Oven element Cooker Hotpoint',
-    quantity_in_stock: '200',
-    cost: '16.50')
-
-electrolux_oven_element=Part.create(part_number: '11155005',
-    description: 'Oven Element Cooker Electrolux',
-    quantity_in_stock: '260',
-    cost: '14.75')
-
 belling_oven_element=Part.create(part_number: '11155006',
     description: 'Oven Element Cooker Belling',
     quantity_in_stock: '90',
     cost: '10.60')
 
 beko_oven_element=Part.create(part_number: '11155007',
+    description: 'Oven Element Cooker Beko',
+    quantity_in_stock: '110',
+    cost: '12.85')
+
+ #oven element
+hotpoint_oven_element=Part.create(part_number: '11155008',
+    description: 'Oven element Cooker Hotpoint',
+    quantity_in_stock: '200',
+    cost: '16.50')
+
+electrolux_oven_element=Part.create(part_number: '11155009',
+    description: 'Oven Element Cooker Electrolux',
+    quantity_in_stock: '260',
+    cost: '14.75')
+
+belling_oven_element=Part.create(part_number: '11155010',
+    description: 'Oven Element Cooker Belling',
+    quantity_in_stock: '90',
+    cost: '10.60')
+
+beko_oven_element=Part.create(part_number: '11155011',
     description: 'Oven Element Cooker Beko',
     quantity_in_stock: '110',
     cost: '12.85')

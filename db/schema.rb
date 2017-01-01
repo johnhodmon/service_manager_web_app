@@ -13,14 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160407174606) do
 
-  create_table "comments", force: :cascade do |t|
-    t.string   "content"
-    t.integer  "user_id"
-    t.integer  "micropost_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
   create_table "customer_products", force: :cascade do |t|
     t.integer  "customer_id"
     t.integer  "product_id"
@@ -79,7 +71,6 @@ ActiveRecord::Schema.define(version: 20160407174606) do
     t.datetime "travel_end"
     t.datetime "labour_end"
     t.datetime "labour_start"
-    t.binary   "cust_sig"
     t.datetime "allocation_date"
   end
 
@@ -117,15 +108,13 @@ ActiveRecord::Schema.define(version: 20160407174606) do
     t.datetime "updated_at",        null: false
   end
 
+  add_index "parts", ["part_number"], name: "index_parts_on_part_number", unique: true
+
   create_table "photos", force: :cascade do |t|
     t.integer  "job_id"
     t.binary   "photo_data"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
-    t.string   "pic_attachment_file_name"
-    t.string   "pic_attachment_content_type"
-    t.integer  "pic_attachment_file_size"
-    t.datetime "pic_attachment_updated_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "products", force: :cascade do |t|

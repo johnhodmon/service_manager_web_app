@@ -55,7 +55,7 @@ class JobsController < ApplicationController
     respond_to do |format|
       if @job.save
         engineer=User.find(job_params[:engineer_id])
-        gcm = GCM.new("AIzaSyDvGJ0YFIwP6zeqCJZW0WX_Z9A9CC6lxmQ")
+        gcm = GCM.new("AIzaSyBPalsCcOmrmlCZaCE5ksmpnPTeZXhnPwM")
         registration_ids = [engineer.gms_token]
         gcm.send(registration_ids, {data: {message: "New Job Allocated",id:@job.id}})  
         format.html { redirect_to customer_path(id:1)}
@@ -74,7 +74,7 @@ class JobsController < ApplicationController
 
       if @job.update(job_params)
         engineer=User.find(job_params[:engineer_id])
-        gcm = GCM.new("AIzaSyDvGJ0YFIwP6zeqCJZW0WX_Z9A9CC6lxmQ")
+        gcm = GCM.new("AIzaSyBPalsCcOmrmlCZaCE5ksmpnPTeZXhnPwM")
         registration_ids = [engineer.gms_token]
         gcm.send(registration_ids, {data: {message: "New Job Allocated For",id:@job.id}})
         format.html { redirect_to @job}
@@ -104,6 +104,6 @@ class JobsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
       params.require(:job).permit(:id,:reported_fault, :travel_time, :labour_time, :customer_product_id,
-       :engineer_id,:status,:travel_start,:travel_end,:labour_start,:labour_end,:cust_sig,:created_at)
+       :engineer_id,:status,:travel_start,:travel_end,:labour_start,:labour_end,:cust_sig,:created_at, :allocation_date)
     end
 end

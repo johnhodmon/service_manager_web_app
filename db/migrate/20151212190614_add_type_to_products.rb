@@ -1,4 +1,4 @@
-git commit class AddTypeToProducts < ActiveRecord::Migration
+class AddTypeToProducts < ActiveRecord::Migration
   def change
     add_column :products, :type, :string
   end
